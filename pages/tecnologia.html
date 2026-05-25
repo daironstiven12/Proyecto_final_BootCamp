@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aprende Tecnologia e Informatica con StudyBuddy - Programacion, hardware y software.">
+  <title>Tecnologia - StudyBuddy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/loader.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <style>
+    :root { --subject-accent: var(--subject-tech); --subject-accent-bg: rgba(6, 182, 212, 0.08); }
+  </style>
+</head>
+<body>
+  <div class="bg-gradient-animation" aria-hidden="true"></div>
+  <div id="navbar-placeholder"></div>
+  <div class="breadcrumbs container">
+    <a href="../index.html">Inicio</a>
+    <span class="separator">/</span>
+    <span class="current">Tecnologia e Informatica</span>
+  </div>
+
+  <section class="subject-hero">
+    <div class="container">
+      <div class="subject-hero-content reveal">
+        <div class="subject-hero-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="4" width="16" height="16" rx="2" ry="2"/>
+            <rect x="9" y="9" width="6" height="6"/>
+            <line x1="9" y1="1" x2="9" y2="4"/>
+            <line x1="15" y1="1" x2="15" y2="4"/>
+            <line x1="9" y1="20" x2="9" y2="23"/>
+            <line x1="15" y1="20" x2="15" y2="23"/>
+            <line x1="20" y1="9" x2="23" y2="9"/>
+            <line x1="20" y1="14" x2="23" y2="14"/>
+            <line x1="1" y1="9" x2="4" y2="9"/>
+            <line x1="1" y1="14" x2="4" y2="14"/>
+          </svg>
+        </div>
+        <h1>Tecnologia e Informatica</h1>
+        <p>Descubre el mundo de la tecnologia: programacion, hardware, software y conceptos fundamentales de informatica.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Temas</span>
+        <h2 class="section-title">Contenido de la materia</h2>
+      </div>
+      <div class="topics-grid stagger-children">
+        <div class="topic-card">
+          <h3>Programacion Basica</h3>
+          <p>Aprende los fundamentos de la programacion: algoritmos, variables, condicionales y bucles.</p>
+          <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
+        </div>
+        <div class="topic-card">
+          <h3>Hardware</h3>
+          <p>Componentes fisicos de una computadora: CPU, RAM, disco duro, placa madre y perifericos.</p>
+          <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
+        </div>
+        <div class="topic-card">
+          <h3>Software</h3>
+          <p>Sistemas operativos, aplicaciones, lenguajes de programacion y la nube. El mundo digital.</p>
+          <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Paso a paso</span>
+        <h2 class="section-title">Como crear un algoritmo</h2>
+      </div>
+      <div class="steps-container reveal">
+        <div class="step-item">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h4>Definir el problema</h4>
+            <p>Claramente establece que quieres resolver. Ejemplo: "Crear un programa que sume dos numeros ingresados por el usuario."</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h4>Identificar entradas y salidas</h4>
+            <p>Entrada: dos numeros. Salida: la suma de ambos numeros. Esto define los limites de tu algoritmo.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h4>Escribir los pasos</h4>
+            <p>1. Solicitar el primer numero. 2. Solicitar el segundo numero. 3. Sumar ambos numeros. 4. Mostrar el resultado.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h4>Probar y refinar</h4>
+            <p>Ejecuta tu algoritmo con diferentes valores. Si encuentra errores, vuelve al paso 3 y mejoralo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="quiz">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Quiz</span>
+        <h2 class="section-title">Pon a prueba tus conocimientos tecnologicos</h2>
+        <p class="section-subtitle">Responde preguntas sobre programacion, hardware y software.</p>
+      </div>
+      <div class="reveal">
+        <div id="quiz-container" class="quiz-container"></div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="../js/loader.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/quiz.js"></script>
+  <script src="../js/games.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => QuizSystem.init('tecnologia'), 100);
+    });
+  </script>
+</body>
+</html>

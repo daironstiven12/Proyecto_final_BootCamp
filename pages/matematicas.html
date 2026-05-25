@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aprende Matematicas con StudyBuddy - Ejercicios, quizzes y explicaciones paso a paso.">
+  <title>Matematicas - StudyBuddy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/loader.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <style>
+    :root { --subject-accent: var(--subject-math); --subject-accent-bg: rgba(99, 102, 241, 0.08); }
+  </style>
+</head>
+<body>
+  <div class="bg-gradient-animation" aria-hidden="true"></div>
+  <div id="navbar-placeholder"></div>
+  <div class="breadcrumbs container">
+    <a href="../index.html">Inicio</a>
+    <span class="separator">/</span>
+    <span class="current">Matematicas</span>
+  </div>
+
+  <section class="subject-hero">
+    <div class="container">
+      <div class="subject-hero-content reveal">
+        <div class="subject-hero-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+            <line x1="8" y1="7" x2="16" y2="7"/>
+            <line x1="8" y1="11" x2="14" y2="11"/>
+          </svg>
+        </div>
+        <h1>Matematicas</h1>
+        <p>Domina los numeros, el algebra, la geometria y mucho mas con explicaciones claras y ejercicios practicos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Topics -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Temas</span>
+        <h2 class="section-title">Contenido de la materia</h2>
+      </div>
+      <div class="topics-grid stagger-children">
+        <div class="topic-card">
+          <h3>Algebra Basica</h3>
+          <p>Aprende los fundamentos del algebra: variables, ecuaciones lineales y expresiones algebraicas.</p>
+          <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
+        </div>
+        <div class="topic-card">
+          <h3>Geometria</h3>
+          <p>Figuras geometricas, areas, perimetros y volumenes. Todo explicado con ejemplos visuales.</p>
+          <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
+        </div>
+        <div class="topic-card">
+          <h3>Aritmetica</h3>
+          <p>Operaciones basicas, fracciones, decimales y porcentajes. La base de todas las matematicas.</p>
+          <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step by Step -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Paso a paso</span>
+        <h2 class="section-title">Resolucion de problemas</h2>
+      </div>
+      <div class="steps-container reveal">
+        <div class="step-item">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h4>Entender el problema</h4>
+            <p>Lee cuidadosamente el enunciado. Identifica los datos conocidos y lo que necesitas encontrar. Por ejemplo: "Si Juan tiene 5 manzanas y le da 2 a su amigo, cuantas le quedan?"</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h4>Planificar la solucion</h4>
+            <p>Determina que operacion matematica usar. En este caso, una resta: 5 - 2 = ?</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h4>Ejecutar el calculo</h4>
+            <p>Realiza la operacion: 5 - 2 = 3. A Juan le quedan 3 manzanas.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h4>Verificar la respuesta</h4>
+            <p>Revisa si tu respuesta tiene sentido. 3 manzanas es menos que 5, lo cual tiene sentido porque regalo algunas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quiz -->
+  <section class="section" id="quiz">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Quiz</span>
+        <h2 class="section-title">Pon a prueba tus conocimientos</h2>
+        <p class="section-subtitle">Responde las siguientes preguntas para evaluar lo que has aprendido.</p>
+      </div>
+      <div class="reveal">
+        <div id="quiz-container" class="quiz-container"></div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="../js/loader.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/quiz.js"></script>
+  <script src="../js/games.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => QuizSystem.init('matematicas'), 100);
+    });
+  </script>
+</body>
+</html>

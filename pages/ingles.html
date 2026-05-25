@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aprende Ingles con StudyBuddy - Vocabulario, gramatica y ejercicios interactivos.">
+  <title>Ingles - StudyBuddy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/loader.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <style>
+    :root { --subject-accent: var(--subject-english); --subject-accent-bg: rgba(245, 158, 11, 0.08); }
+  </style>
+</head>
+<body>
+  <div class="bg-gradient-animation" aria-hidden="true"></div>
+  <div id="navbar-placeholder"></div>
+  <div class="breadcrumbs container">
+    <a href="../index.html">Inicio</a>
+    <span class="separator">/</span>
+    <span class="current">Ingles</span>
+  </div>
+
+  <section class="subject-hero">
+    <div class="container">
+      <div class="subject-hero-content reveal">
+        <div class="subject-hero-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 8l6 6"/>
+            <path d="M4 14l6-6 2-3"/>
+            <path d="M2 5h12"/>
+            <path d="M7 2h1"/>
+            <path d="M22 10v5"/>
+            <path d="M18 12h4"/>
+          </svg>
+        </div>
+        <h1>Ingles</h1>
+        <p>Mejora tu nivel de ingles con vocabulario, gramatica y ejercicios de conversacion. Aprende de forma practica y divertida.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Temas</span>
+        <h2 class="section-title">Contenido de la materia</h2>
+      </div>
+      <div class="topics-grid stagger-children">
+        <div class="topic-card">
+          <h3>Vocabulary</h3>
+          <p>Aprende nuevas palabras en ingles con ejemplos y pronunciacion. Amplia tu vocabulario dia a dia.</p>
+          <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
+        </div>
+        <div class="topic-card">
+          <h3>Grammar</h3>
+          <p>Domina la gramatica inglesa: tiempos verbales, preposiciones, articulos y estructura de oraciones.</p>
+          <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
+        </div>
+        <div class="topic-card">
+          <h3>Conversation</h3>
+          <p>Frases utiles para conversaciones cotidianas. Aprende a presentarte, pedir direcciones y mas.</p>
+          <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Paso a paso</span>
+        <h2 class="section-title">Como formar oraciones en ingles</h2>
+      </div>
+      <div class="steps-container reveal">
+        <div class="step-item">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h4>Sujeto + Verbo</h4>
+            <p>Toda oracion necesita un sujeto (I, you, he, she, it, we, they) y un verbo. Ejemplo: "I study" (Yo estudio).</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h4>Agregar objeto o complemento</h4>
+            <p>Anade el objeto o complemento. Ejemplo: "I study English" (Yo estudio ingles).</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h4>Usar tiempos verbales</h4>
+            <p>Cambia el verbo segun el tiempo: "I studied English yesterday" (pasad), "I will study English tomorrow" (futuro).</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h4>Practicar la pronunciacion</h4>
+            <p>Lee las oraciones en voz alta. La practica constante mejora tu fluidez y confianza.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="quiz">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Quiz</span>
+        <h2 class="section-title">Pon a prueba tu ingles</h2>
+        <p class="section-subtitle">Responde preguntas de vocabulario, gramatica y comprension.</p>
+      </div>
+      <div class="reveal">
+        <div id="quiz-container" class="quiz-container"></div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="../js/loader.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/quiz.js"></script>
+  <script src="../js/games.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => QuizSystem.init('ingles'), 100);
+    });
+  </script>
+</body>
+</html>
