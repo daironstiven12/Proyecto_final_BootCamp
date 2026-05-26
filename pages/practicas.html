@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Practica ejercicios interactivos con explicaciones paso a paso.">
-  <title>Practicas - StudyBuddy</title>
+  <title>Practicas - AULA DIGITAL</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -15,170 +15,172 @@
 </head>
 <body>
   <div class="bg-gradient-animation" aria-hidden="true"></div>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
   <div id="navbar-placeholder"></div>
 
-  <div class="breadcrumbs container">
-    <a href="../index.html">Inicio</a>
-    <span class="separator">/</span>
-    <span class="current">Practicas</span>
-  </div>
+  <main id="main-content">
+    <nav aria-label="Breadcrumb">
+      <ol class="breadcrumbs container">
+        <li><a href="../index.html">Inicio</a></li>
+        <li class="separator" aria-hidden="true">/</li>
+        <li aria-current="page">Practicas</li>
+      </ol>
+    </nav>
 
-  <div class="practice-header reveal">
-    <div class="container">
-      <h1>Practica con Ejercicios</h1>
-      <p>Resuelve ejercicios interactivos con pistas y explicaciones paso a paso.</p>
-    </div>
-  </div>
-
-  <section class="section">
-    <div class="container">
-      <div class="reveal">
-        <div class="section-header">
-          <span class="section-tag">Matematicas</span>
-          <h2 class="section-title">Ejercicios de aritmetica</h2>
-        </div>
-
-        <!-- Exercise 1 -->
-        <div class="exercise-card" id="exercise-1">
-          <div class="exercise-number">1</div>
-          <h3>Suma de numeros grandes</h3>
-          <p>Calcula el resultado de la siguiente operacion: 1,245 + 3,678 = ?</p>
-          <textarea class="exercise-input" id="ex1-input" rows="2" placeholder="Escribe tu respuesta aqui..."></textarea>
-          <div class="exercise-hint" id="ex1-hint" style="display:none;">
-            Pista: Suma primero las unidades, luego las decenas, centenas y millares. Recuerda llevar cuando sea necesario.
-          </div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <button class="btn btn-sm btn-secondary" onclick="document.getElementById('ex1-hint').style.display='block'">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-              Mostrar pista
-            </button>
-            <button class="btn btn-sm btn-primary" onclick="checkExercise1()">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><polyline points="20 6 9 17 4 12"/></svg>
-              Verificar
-            </button>
-            <button class="btn btn-sm btn-outline" onclick="showExerciseAnswer(1)">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-              Ver respuesta
-            </button>
-          </div>
-          <div id="ex1-feedback" style="margin-top:12px;"></div>
-          <div id="ex1-answer" style="display:none;" class="exercise-answer">
-            <strong>Respuesta:</strong> 4,923
-          </div>
-          <div id="ex1-steps" style="display:none;" class="exercise-steps">
-            <div class="exercise-step"><span class="exercise-step-num">1.</span> Suma las unidades: 5 + 8 = 13 (escribes 3 y llevas 1)</div>
-            <div class="exercise-step"><span class="exercise-step-num">2.</span> Suma las decenas: 4 + 7 + 1 (que llevas) = 12 (escribes 2 y llevas 1)</div>
-            <div class="exercise-step"><span class="exercise-step-num">3.</span> Suma las centenas: 2 + 6 + 1 (que llevas) = 9</div>
-            <div class="exercise-step"><span class="exercise-step-num">4.</span> Suma los millares: 1 + 3 = 4</div>
-            <div class="exercise-step"><span class="exercise-step-num">5.</span> Resultado final: 4,923</div>
-          </div>
-        </div>
-
-        <!-- Exercise 2 -->
-        <div class="exercise-card" id="exercise-2">
-          <div class="exercise-number">2</div>
-          <h3>Multiplicacion</h3>
-          <p>Resuelve: 15 x 12 = ?</p>
-          <textarea class="exercise-input" id="ex2-input" rows="2" placeholder="Escribe tu respuesta aqui..."></textarea>
-          <div class="exercise-hint" id="ex2-hint" style="display:none;">
-            Pista: Puedes descomponer 12 como 10 + 2, luego multiplicar 15 x 10 = 150 y 15 x 2 = 30, y sumar los resultados.
-          </div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <button class="btn btn-sm btn-secondary" onclick="document.getElementById('ex2-hint').style.display='block'">Mostrar pista</button>
-            <button class="btn btn-sm btn-primary" onclick="checkExercise2()">Verificar</button>
-            <button class="btn btn-sm btn-outline" onclick="showExerciseAnswer(2)">Ver respuesta</button>
-          </div>
-          <div id="ex2-feedback" style="margin-top:12px;"></div>
-          <div id="ex2-answer" style="display:none;" class="exercise-answer">
-            <strong>Respuesta:</strong> 180
-          </div>
-          <div id="ex2-steps" style="display:none;" class="exercise-steps">
-            <div class="exercise-step"><span class="exercise-step-num">1.</span> Descomponemos 12 en 10 + 2</div>
-            <div class="exercise-step"><span class="exercise-step-num">2.</span> 15 x 10 = 150</div>
-            <div class="exercise-step"><span class="exercise-step-num">3.</span> 15 x 2 = 30</div>
-            <div class="exercise-step"><span class="exercise-step-num">4.</span> Sumamos: 150 + 30 = 180</div>
-          </div>
-        </div>
-
-        <!-- Exercise 3 -->
-        <div class="exercise-card" id="exercise-3">
-          <div class="exercise-number">3</div>
-          <h3>Fracciones equivalentes</h3>
-          <p>Que fraccion es equivalente a 3/4? Escoge entre: 6/8, 5/7, 9/12, 12/16</p>
-          <textarea class="exercise-input" id="ex3-input" rows="2" placeholder="Escribe tu respuesta (puedes separar con comas)..."></textarea>
-          <div class="exercise-hint" id="ex3-hint" style="display:none;">
-            Pista: Una fraccion equivalente se obtiene multiplicando numerador y denominador por el mismo numero.
-          </div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <button class="btn btn-sm btn-secondary" onclick="document.getElementById('ex3-hint').style.display='block'">Mostrar pista</button>
-            <button class="btn btn-sm btn-primary" onclick="checkExercise3()">Verificar</button>
-            <button class="btn btn-sm btn-outline" onclick="showExerciseAnswer(3)">Ver respuesta</button>
-          </div>
-          <div id="ex3-feedback" style="margin-top:12px;"></div>
-          <div id="ex3-answer" style="display:none;" class="exercise-answer">
-            <strong>Respuesta:</strong> 6/8, 9/12 y 12/16 son equivalentes a 3/4
-          </div>
-          <div id="ex3-steps" style="display:none;" class="exercise-steps">
-            <div class="exercise-step"><span class="exercise-step-num">1.</span> 3/4 x 2/2 = 6/8 (equivalente)</div>
-            <div class="exercise-step"><span class="exercise-step-num">2.</span> 3/4 x 3/3 = 9/12 (equivalente)</div>
-            <div class="exercise-step"><span class="exercise-step-num">3.</span> 3/4 x 4/4 = 12/16 (equivalente)</div>
-            <div class="exercise-step"><span class="exercise-step-num">4.</span> 5/7 NO es equivalente porque 3x7=21 y 4x5=20, no son iguales</div>
-          </div>
-        </div>
-
-        <!-- Exercise 4 -->
-        <div class="exercise-card" id="exercise-4">
-          <div class="exercise-number">4</div>
-          <h3>Porcentajes</h3>
-          <p>Si un articulo cuesta $80 y tiene un descuento del 25%, cuanto pagarias?</p>
-          <textarea class="exercise-input" id="ex4-input" rows="2" placeholder="Escribe tu respuesta aqui..."></textarea>
-          <div class="exercise-hint" id="ex4-hint" style="display:none;">
-            Pista: Calcula primero el 25% de $80 (25/100 x 80) y luego resta ese valor al precio original.
-          </div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <button class="btn btn-sm btn-secondary" onclick="document.getElementById('ex4-hint').style.display='block'">Mostrar pista</button>
-            <button class="btn btn-sm btn-primary" onclick="checkExercise4()">Verificar</button>
-            <button class="btn btn-sm btn-outline" onclick="showExerciseAnswer(4)">Ver respuesta</button>
-          </div>
-          <div id="ex4-feedback" style="margin-top:12px;"></div>
-          <div id="ex4-answer" style="display:none;" class="exercise-answer">
-            <strong>Respuesta:</strong> $60
-          </div>
-          <div id="ex4-steps" style="display:none;" class="exercise-steps">
-            <div class="exercise-step"><span class="exercise-step-num">1.</span> Calcula el 25% de $80: (25 x 80) / 100 = 2000 / 100 = $20</div>
-            <div class="exercise-step"><span class="exercise-step-num">2.</span> Resta el descuento: $80 - $20 = $60</div>
-          </div>
-        </div>
-
-        <!-- Exercise 5 -->
-        <div class="exercise-card" id="exercise-5">
-          <div class="exercise-number">5</div>
-          <h3>Area de un triangulo</h3>
-          <p>Calcula el area de un triangulo con base de 10 cm y altura de 6 cm.</p>
-          <textarea class="exercise-input" id="ex5-input" rows="2" placeholder="Escribe tu respuesta aqui (incluye unidades)..."></textarea>
-          <div class="exercise-hint" id="ex5-hint" style="display:none;">
-            Pista: La formula del area de un triangulo es (base x altura) / 2
-          </div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <button class="btn btn-sm btn-secondary" onclick="document.getElementById('ex5-hint').style.display='block'">Mostrar pista</button>
-            <button class="btn btn-sm btn-primary" onclick="checkExercise5()">Verificar</button>
-            <button class="btn btn-sm btn-outline" onclick="showExerciseAnswer(5)">Ver respuesta</button>
-          </div>
-          <div id="ex5-feedback" style="margin-top:12px;"></div>
-          <div id="ex5-answer" style="display:none;" class="exercise-answer">
-            <strong>Respuesta:</strong> 30 cm2
-          </div>
-          <div id="ex5-steps" style="display:none;" class="exercise-steps">
-            <div class="exercise-step"><span class="exercise-step-num">1.</span> Formula: Area = (base x altura) / 2</div>
-            <div class="exercise-step"><span class="exercise-step-num">2.</span> Area = (10 x 6) / 2</div>
-            <div class="exercise-step"><span class="exercise-step-num">3.</span> Area = 60 / 2</div>
-            <div class="exercise-step"><span class="exercise-step-num">4.</span> Area = 30 cm2</div>
-          </div>
-        </div>
-
+    <header class="practice-header reveal">
+      <div class="container">
+        <h1>Practica con Ejercicios</h1>
+        <p>Resuelve ejercicios interactivos con pistas y explicaciones paso a paso.</p>
       </div>
-    </div>
-  </section>
+    </header>
+
+    <section class="section" id="exercises-section" aria-labelledby="exercises-title">
+      <div class="container">
+        <div class="reveal">
+          <div class="section-header">
+            <span class="section-tag">Matematicas</span>
+            <h2 class="section-title" id="exercises-title">Ejercicios de aritmetica</h2>
+          </div>
+
+          <!-- Exercise 1 -->
+          <div class="exercise-card" data-exercise="1">
+            <div class="exercise-number" aria-hidden="true">1</div>
+            <h3>Suma de numeros grandes</h3>
+            <p>Calcula el resultado de la siguiente operacion: 1,245 + 3,678 = ?</p>
+            <textarea class="exercise-input" data-exercise-input="1" rows="2" placeholder="Escribe tu respuesta aqui..."></textarea>
+            <div class="exercise-hint" data-exercise-hint="1" aria-hidden="true">
+              Pista: Suma primero las unidades, luego las decenas, centenas y millares. Recuerda llevar cuando sea necesario.
+            </div>
+            <div class="exercise-actions" data-exercise-actions="1">
+              <button class="btn btn-sm btn-secondary" data-action="hint" data-target="1">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                Mostrar pista
+              </button>
+              <button class="btn btn-sm btn-primary" data-action="verify" data-target="1">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Verificar
+              </button>
+              <button class="btn btn-sm btn-outline" data-action="show-answer" data-target="1">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                Ver respuesta
+              </button>
+            </div>
+            <div class="exercise-feedback" data-exercise-feedback="1" role="alert" aria-live="polite"></div>
+            <div class="exercise-answer" data-exercise-answer="1" aria-hidden="true">
+              <strong>Respuesta:</strong> 4,923
+            </div>
+            <div class="exercise-steps" data-exercise-steps="1" aria-hidden="true">
+              <div class="exercise-step"><span class="exercise-step-num">1.</span> Suma las unidades: 5 + 8 = 13 (escribes 3 y llevas 1)</div>
+              <div class="exercise-step"><span class="exercise-step-num">2.</span> Suma las decenas: 4 + 7 + 1 = 12 (escribes 2 y llevas 1)</div>
+              <div class="exercise-step"><span class="exercise-step-num">3.</span> Suma las centenas: 2 + 6 + 1 = 9</div>
+              <div class="exercise-step"><span class="exercise-step-num">4.</span> Suma los millares: 1 + 3 = 4</div>
+              <div class="exercise-step"><span class="exercise-step-num">5.</span> Resultado final: 4,923</div>
+            </div>
+          </div>
+
+          <!-- Exercise 2 -->
+          <div class="exercise-card" data-exercise="2">
+            <div class="exercise-number" aria-hidden="true">2</div>
+            <h3>Multiplicacion</h3>
+            <p>Resuelve: 15 x 12 = ?</p>
+            <textarea class="exercise-input" data-exercise-input="2" rows="2" placeholder="Escribe tu respuesta aqui..."></textarea>
+            <div class="exercise-hint" data-exercise-hint="2" aria-hidden="true">
+              Pista: Descompone 12 como 10 + 2, luego multiplica 15 x 10 = 150 y 15 x 2 = 30, y suma.
+            </div>
+            <div class="exercise-actions" data-exercise-actions="2">
+              <button class="btn btn-sm btn-secondary" data-action="hint" data-target="2">Mostrar pista</button>
+              <button class="btn btn-sm btn-primary" data-action="verify" data-target="2">Verificar</button>
+              <button class="btn btn-sm btn-outline" data-action="show-answer" data-target="2">Ver respuesta</button>
+            </div>
+            <div class="exercise-feedback" data-exercise-feedback="2" role="alert" aria-live="polite"></div>
+            <div class="exercise-answer" data-exercise-answer="2" aria-hidden="true">
+              <strong>Respuesta:</strong> 180
+            </div>
+            <div class="exercise-steps" data-exercise-steps="2" aria-hidden="true">
+              <div class="exercise-step"><span class="exercise-step-num">1.</span> 15 x 10 = 150</div>
+              <div class="exercise-step"><span class="exercise-step-num">2.</span> 15 x 2 = 30</div>
+              <div class="exercise-step"><span class="exercise-step-num">3.</span> 150 + 30 = 180</div>
+            </div>
+          </div>
+
+          <!-- Exercise 3 -->
+          <div class="exercise-card" data-exercise="3">
+            <div class="exercise-number" aria-hidden="true">3</div>
+            <h3>Fracciones equivalentes</h3>
+            <p>Que fracciones son equivalentes a 3/4? Opciones: 6/8, 5/7, 9/12, 12/16</p>
+            <textarea class="exercise-input" data-exercise-input="3" rows="2" placeholder="Escribe las fracciones separadas por coma..."></textarea>
+            <div class="exercise-hint" data-exercise-hint="3" aria-hidden="true">
+              Pista: Multiplica numerador y denominador por el mismo numero.
+            </div>
+            <div class="exercise-actions" data-exercise-actions="3">
+              <button class="btn btn-sm btn-secondary" data-action="hint" data-target="3">Mostrar pista</button>
+              <button class="btn btn-sm btn-primary" data-action="verify" data-target="3">Verificar</button>
+              <button class="btn btn-sm btn-outline" data-action="show-answer" data-target="3">Ver respuesta</button>
+            </div>
+            <div class="exercise-feedback" data-exercise-feedback="3" role="alert" aria-live="polite"></div>
+            <div class="exercise-answer" data-exercise-answer="3" aria-hidden="true">
+              <strong>Respuesta:</strong> 6/8, 9/12 y 12/16 son equivalentes a 3/4
+            </div>
+            <div class="exercise-steps" data-exercise-steps="3" aria-hidden="true">
+              <div class="exercise-step"><span class="exercise-step-num">1.</span> 3/4 x 2/2 = 6/8</div>
+              <div class="exercise-step"><span class="exercise-step-num">2.</span> 3/4 x 3/3 = 9/12</div>
+              <div class="exercise-step"><span class="exercise-step-num">3.</span> 3/4 x 4/4 = 12/16</div>
+            </div>
+          </div>
+
+          <!-- Exercise 4 -->
+          <div class="exercise-card" data-exercise="4">
+            <div class="exercise-number" aria-hidden="true">4</div>
+            <h3>Porcentajes</h3>
+            <p>Si un articulo cuesta $80 y tiene 25% de descuento, cuanto pagas?</p>
+            <textarea class="exercise-input" data-exercise-input="4" rows="2" placeholder="Escribe tu respuesta..."></textarea>
+            <div class="exercise-hint" data-exercise-hint="4" aria-hidden="true">
+              Pista: Calcula 25% de $80 y resta del precio original.
+            </div>
+            <div class="exercise-actions" data-exercise-actions="4">
+              <button class="btn btn-sm btn-secondary" data-action="hint" data-target="4">Mostrar pista</button>
+              <button class="btn btn-sm btn-primary" data-action="verify" data-target="4">Verificar</button>
+              <button class="btn btn-sm btn-outline" data-action="show-answer" data-target="4">Ver respuesta</button>
+            </div>
+            <div class="exercise-feedback" data-exercise-feedback="4" role="alert" aria-live="polite"></div>
+            <div class="exercise-answer" data-exercise-answer="4" aria-hidden="true">
+              <strong>Respuesta:</strong> $60
+            </div>
+            <div class="exercise-steps" data-exercise-steps="4" aria-hidden="true">
+              <div class="exercise-step"><span class="exercise-step-num">1.</span> 25% de $80 = $20</div>
+              <div class="exercise-step"><span class="exercise-step-num">2.</span> $80 - $20 = $60</div>
+            </div>
+          </div>
+
+          <!-- Exercise 5 -->
+          <div class="exercise-card" data-exercise="5">
+            <div class="exercise-number" aria-hidden="true">5</div>
+            <h3>Area de un triangulo</h3>
+            <p>Calcula el area de un triangulo con base 10 cm y altura 6 cm.</p>
+            <textarea class="exercise-input" data-exercise-input="5" rows="2" placeholder="Escribe tu respuesta (incluye unidades)..."></textarea>
+            <div class="exercise-hint" data-exercise-hint="5" aria-hidden="true">
+              Pista: Formula: (base x altura) / 2
+            </div>
+            <div class="exercise-actions" data-exercise-actions="5">
+              <button class="btn btn-sm btn-secondary" data-action="hint" data-target="5">Mostrar pista</button>
+              <button class="btn btn-sm btn-primary" data-action="verify" data-target="5">Verificar</button>
+              <button class="btn btn-sm btn-outline" data-action="show-answer" data-target="5">Ver respuesta</button>
+            </div>
+            <div class="exercise-feedback" data-exercise-feedback="5" role="alert" aria-live="polite"></div>
+            <div class="exercise-answer" data-exercise-answer="5" aria-hidden="true">
+              <strong>Respuesta:</strong> 30 cm2
+            </div>
+            <div class="exercise-steps" data-exercise-steps="5" aria-hidden="true">
+              <div class="exercise-step"><span class="exercise-step-num">1.</span> Area = (10 x 6) / 2</div>
+              <div class="exercise-step"><span class="exercise-step-num">2.</span> Area = 60 / 2</div>
+              <div class="exercise-step"><span class="exercise-step-num">3.</span> Area = 30 cm2</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
 
   <div id="footer-placeholder"></div>
 
@@ -188,100 +190,115 @@
   <script src="../js/games.js"></script>
   <script src="../js/main.js"></script>
   <script>
-    /* Exercise verification functions */
-    function checkExercise1() {
-      const input = document.getElementById('ex1-input').value.trim();
-      const fb = document.getElementById('ex1-feedback');
-      const answer = document.getElementById('ex1-answer');
-      const steps = document.getElementById('ex1-steps');
-      const normalized = input.replace(/[,\s]/g, '');
-      if (normalized === '4923' || normalized === '4.923') {
-        fb.innerHTML = '<div style="padding:12px;background:rgba(16,185,129,0.08);border:1px solid var(--subject-science);border-radius:8px;color:var(--subject-science);font-weight:600;">Correcto! Muy bien.</div>';
-        answer.style.display = 'block';
-        steps.style.display = 'block';
-        updateProgress();
-      } else {
-        fb.innerHTML = '<div style="padding:12px;background:rgba(239,68,68,0.08);border:1px solid var(--subject-history);border-radius:8px;color:var(--subject-history);font-weight:600;">Incorrecto. Intenta de nuevo o usa la pista.</div>';
+    (function () {
+      /* ---- Exercise validation via event delegation ---- */
+      const validators = {
+        1: function (input) { return input.replace(/[,\s]/g, '') === '4923' || input.replace(/[,\s]/g, '') === '4.923'; },
+        2: function (input) { return input.trim() === '180'; },
+        3: function (input) {
+          var valid = ['6/8', '9/12', '12/16'];
+          var answers = input.split(/[,;]/).map(function (s) { return s.trim(); });
+          return answers.some(function (a) { return valid.indexOf(a) !== -1; });
+        },
+        4: function (input) {
+          var v = input.trim();
+          return v === '60' || v === '$60' || v === '60$' || v === '60 dolares';
+        },
+        5: function (input) { return input.trim().toLowerCase().indexOf('30') !== -1; }
+      };
+
+      var feedbackMessages = {
+        1: { correct: 'Correcto! 1,245 + 3,678 = 4,923', incorrect: 'Incorrecto. Revisa la suma.' },
+        2: { correct: 'Correcto! 15 x 12 = 180', incorrect: 'Incorrecto. Revisa la multiplicacion.' },
+        3: { correct: 'Bien! 6/8, 9/12 y 12/16 son equivalentes a 3/4.', incorrect: 'Multiplica numerador y denominador por el mismo numero.' },
+        4: { correct: 'Correcto! Pagarias $60.', incorrect: 'Calcula el 25% de 80 y restalo.' },
+        5: { correct: 'Correcto! El area es 30 cm2.', incorrect: 'Usa la formula: (base x altura) / 2' }
+      };
+
+      function getFeedbackEl(num) {
+        return document.querySelector('[data-exercise-feedback="' + num + '"]');
       }
-    }
 
-    function checkExercise2() {
-      const input = document.getElementById('ex2-input').value.trim();
-      const fb = document.getElementById('ex2-feedback');
-      const answer = document.getElementById('ex2-answer');
-      const steps = document.getElementById('ex2-steps');
-      if (input === '180') {
-        fb.innerHTML = '<div style="padding:12px;background:rgba(16,185,129,0.08);border:1px solid var(--subject-science);border-radius:8px;color:var(--subject-science);font-weight:600;">Correcto! Bien hecho.</div>';
-        answer.style.display = 'block';
-        steps.style.display = 'block';
-        updateProgress();
-      } else {
-        fb.innerHTML = '<div style="padding:12px;background:rgba(239,68,68,0.08);border:1px solid var(--subject-history);border-radius:8px;color:var(--subject-history);font-weight:600;">Incorrecto. Revisa la multiplicacion.</div>';
+      function getAnswerEl(num) {
+        return document.querySelector('[data-exercise-answer="' + num + '"]');
       }
-    }
 
-    function checkExercise3() {
-      const input = document.getElementById('ex3-input').value.trim().toLowerCase();
-      const fb = document.getElementById('ex3-feedback');
-      const answer = document.getElementById('ex3-answer');
-      const steps = document.getElementById('ex3-steps');
-      const validAnswers = ['6/8', '9/12', '12/16'];
-      const userAnswers = input.split(/[,;]/).map(s => s.trim());
-      const correct = userAnswers.filter(a => validAnswers.includes(a));
-      if (correct.length >= 1) {
-        fb.innerHTML = '<div style="padding:12px;background:rgba(16,185,129,0.08);border:1px solid var(--subject-science);border-radius:8px;color:var(--subject-science);font-weight:600;">Bien! 6/8, 9/12 y 12/16 son equivalentes a 3/4.</div>';
-        answer.style.display = 'block';
-        steps.style.display = 'block';
-        updateProgress();
-      } else {
-        fb.innerHTML = '<div style="padding:12px;background:rgba(239,68,68,0.08);border:1px solid var(--subject-history);border-radius:8px;color:var(--subject-history);font-weight:600;">Revisa las fracciones. Multiplica numerador y denominador por el mismo numero.</div>';
+      function getStepsEl(num) {
+        return document.querySelector('[data-exercise-steps="' + num + '"]');
       }
-    }
 
-    function checkExercise4() {
-      const input = document.getElementById('ex4-input').value.trim();
-      const fb = document.getElementById('ex4-feedback');
-      const answer = document.getElementById('ex4-answer');
-      const steps = document.getElementById('ex4-steps');
-      if (input === '60' || input === '$60' || input === '60 dolares' || input === '60$') {
-        fb.innerHTML = '<div style="padding:12px;background:rgba(16,185,129,0.08);border:1px solid var(--subject-science);border-radius:8px;color:var(--subject-science);font-weight:600;">Correcto! Pagarias $60.</div>';
-        answer.style.display = 'block';
-        steps.style.display = 'block';
-        updateProgress();
-      } else {
-        fb.innerHTML = '<div style="padding:12px;background:rgba(239,68,68,0.08);border:1px solid var(--subject-history);border-radius:8px;color:var(--subject-history);font-weight:600;">Incorrecto. Calcula el 25% de 80 y restalo.</div>';
+      function showFeedback(num, isCorrect) {
+        var el = getFeedbackEl(num);
+        if (!el) return;
+        var msgs = feedbackMessages[num];
+        if (!msgs) return;
+        var msg = isCorrect ? msgs.correct : msgs.incorrect;
+        el.innerHTML = '<div style="padding:12px;background:' + (isCorrect ? 'rgba(16,185,129,0.08)' : 'rgba(239,68,68,0.08)') + ';border:1px solid ' + (isCorrect ? 'var(--subject-science)' : 'var(--subject-history)') + ';border-radius:8px;font-weight:600;color:' + (isCorrect ? 'var(--subject-science)' : 'var(--subject-history)') + ';">' + msg + '</div>';
+        if (isCorrect) {
+          getAnswerEl(num).setAttribute('aria-hidden', 'false');
+          getAnswerEl(num).style.display = 'block';
+          getStepsEl(num).setAttribute('aria-hidden', 'false');
+          getStepsEl(num).style.display = 'block';
+          updateProgress();
+        }
       }
-    }
 
-    function checkExercise5() {
-      const input = document.getElementById('ex5-input').value.trim().toLowerCase();
-      const fb = document.getElementById('ex5-feedback');
-      const answer = document.getElementById('ex5-answer');
-      const steps = document.getElementById('ex5-steps');
-      if (input.includes('30')) {
-        fb.innerHTML = '<div style="padding:12px;background:rgba(16,185,129,0.08);border:1px solid var(--subject-science);border-radius:8px;color:var(--subject-science);font-weight:600;">Correcto! El area es 30 cm2.</div>';
-        answer.style.display = 'block';
-        steps.style.display = 'block';
-        updateProgress();
-      } else {
-        fb.innerHTML = '<div style="padding:12px;background:rgba(239,68,68,0.08);border:1px solid var(--subject-history);border-radius:8px;color:var(--subject-history);font-weight:600;">Recuerda: Area = (base x altura) / 2</div>';
+      function showHint(num) {
+        var hint = document.querySelector('[data-exercise-hint="' + num + '"]');
+        if (hint) {
+          hint.setAttribute('aria-hidden', 'false');
+          hint.style.display = 'block';
+        }
       }
-    }
 
-    function showExerciseAnswer(num) {
-      document.getElementById('ex' + num + '-answer').style.display = 'block';
-      document.getElementById('ex' + num + '-steps').style.display = 'block';
-    }
+      function showAnswer(num) {
+        var answer = getAnswerEl(num);
+        var steps = getStepsEl(num);
+        if (answer) { answer.setAttribute('aria-hidden', 'false'); answer.style.display = 'block'; }
+        if (steps) { steps.setAttribute('aria-hidden', 'false'); steps.style.display = 'block'; }
+      }
 
-    function updateProgress() {
-      try {
-        const saved = JSON.parse(localStorage.getItem('studyProgress') || '{}');
-        saved.matematicas = Math.min(100, (saved.matematicas || 0) + 10);
-        localStorage.setItem('studyProgress', JSON.stringify(saved));
-        const event = new CustomEvent('progressUpdated', { detail: saved });
-        document.dispatchEvent(event);
-      } catch(e) {}
-    }
+      function updateProgress() {
+        try {
+          var saved = JSON.parse(localStorage.getItem('studyProgress') || '{}');
+          saved.matematicas = Math.min(100, (saved.matematicas || 0) + 10);
+          localStorage.setItem('studyProgress', JSON.stringify(saved));
+          document.dispatchEvent(new CustomEvent('progressUpdated', { detail: saved }));
+        } catch (e) {
+          console.warn('No se pudo guardar el progreso:', e.message);
+        }
+      }
+
+      /* ---- Event delegation on exercises section ---- */
+      var section = document.getElementById('exercises-section');
+      if (section) {
+        section.addEventListener('click', function (e) {
+          var btn = e.target.closest('button');
+          if (!btn) return;
+          var action = btn.getAttribute('data-action');
+          var target = btn.getAttribute('data-target');
+          if (!action || !target) return;
+
+          switch (action) {
+            case 'hint':
+              showHint(target);
+              break;
+            case 'verify': {
+              var input = document.querySelector('[data-exercise-input="' + target + '"]');
+              if (!input) return;
+              var validator = validators[target];
+              if (!validator) return;
+              var isCorrect = validator(input.value);
+              showFeedback(target, isCorrect);
+              break;
+            }
+            case 'show-answer':
+              showAnswer(target);
+              break;
+          }
+        });
+      }
+    })();
   </script>
 </body>
 </html>

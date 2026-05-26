@@ -1,6 +1,7 @@
 /* ============================================
    QUIZ.JS - Interactive quiz system
-   Supports any subject with custom questions
+   Human-Centered Engineering: clear feedback,
+   error handling, accessibility
    ============================================ */
 
 const QuizSystem = {
@@ -59,7 +60,7 @@ const QuizSystem = {
         question: 'Cual es el estado del agua a 100 grados Celsius?',
         options: ['Solido', 'Liquido', 'Gaseoso', 'Plasma'],
         correct: 2,
-        explanation: 'A 100C el agua hierve y se convierte en vapor (estado gaseoso).'
+        explanation: 'A 100 C el agua hierve y se convierte en vapor (estado gaseoso).'
       },
       {
         question: 'Que celula es la unidad basica del sistema nervioso?',
@@ -213,35 +214,36 @@ const QuizSystem = {
 
     const letters = ['A', 'B', 'C', 'D'];
     const progress = ((this.currentQuestion + 1) / total) * 100;
+    const subjectKey = Object.keys(this.questions).find(k => this.questions[k] === this.currentQuiz);
 
     container.innerHTML = `
       <div class="quiz-header">
         <div class="quiz-progress-text">Pregunta ${this.currentQuestion + 1} de ${total}</div>
         <div class="quiz-score">Puntaje: ${this.score}</div>
       </div>
-      <div class="progress-bar" style="margin-bottom: var(--space-lg);">
+      <div class="progress-bar" style="margin-bottom: var(--space-lg);" role="progressbar" aria-valuenow="${this.currentQuestion + 1}" aria-valuemin="1" aria-valuemax="${total}">
         <div class="progress-fill" style="width: ${progress}%"></div>
       </div>
-      <div class="quiz-question fade-in">
+      <div class="quiz-question fade-in" role="region" aria-label="Pregunta ${this.currentQuestion + 1}">
         <h3>${q.question}</h3>
-        <div class="quiz-options">
+        <div class="quiz-options" role="radiogroup" aria-label="Opciones de respuesta">
           ${q.options.map((opt, i) => `
-            <button class="quiz-option" data-index="${i}" ${this.answered ? 'disabled' : ''}>
+            <button class="quiz-option" data-index="${i}" role="radio" aria-checked="false" ${this.answered ? 'disabled' : ''}>
               <span class="quiz-option-letter">${letters[i]}</span>
               <span>${opt}</span>
             </button>
           `).join('')}
         </div>
       </div>
-      <div id="quiz-feedback" class="fade-in"></div>
+      <div id="quiz-feedback" class="fade-in" role="alert" aria-live="polite"></div>
       <div class="quiz-navigation">
         <button class="btn btn-secondary" id="quiz-prev" ${this.currentQuestion === 0 ? 'disabled style="opacity:0.4"' : ''}>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
           Anterior
         </button>
         <button class="btn btn-primary" id="quiz-next" ${!this.answered ? 'disabled style="opacity:0.4"' : ''}>
           ${this.currentQuestion === total - 1 ? 'Ver Resultado' : 'Siguiente'}
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
         </button>
       </div>
     `;
@@ -261,25 +263,26 @@ const QuizSystem = {
     });
 
     const nextBtn = document.getElementById('quiz-next');
-    if (nextBtn) {
-      nextBtn.addEventListener('click', () => this.nextQuestion());
-    }
+    if (nextBtn) nextBtn.addEventListener('click', () => this.nextQuestion());
 
     const prevBtn = document.getElementById('quiz-prev');
-    if (prevBtn) {
-      prevBtn.addEventListener('click', () => this.prevQuestion());
-    }
+    if (prevBtn) prevBtn.addEventListener('click', () => this.prevQuestion());
   },
 
   selectOption: function (index) {
+    if (typeof index !== 'number' || index < 0) return;
     this.answered = true;
     const quiz = this.currentQuiz;
     const q = quiz[this.currentQuestion];
+
+    if (!q || !q.options || index >= q.options.length) return;
+
     const options = document.querySelectorAll('.quiz-option');
     const feedback = document.getElementById('quiz-feedback');
 
     options.forEach((opt, i) => {
       opt.disabled = true;
+      opt.setAttribute('aria-checked', i === index ? 'true' : 'false');
       if (i === q.correct) {
         opt.classList.add('correct');
       } else if (i === index && i !== q.correct) {
@@ -294,11 +297,13 @@ const QuizSystem = {
       this.showToast('Incorrecto', 'error');
     }
 
-    feedback.innerHTML = `
-      <div style="padding: 16px; background: var(--bg-secondary); border-radius: 12px; margin-top: 16px; border-left: 4px solid ${index === q.correct ? 'var(--subject-science)' : 'var(--subject-history)'};">
-        <strong>Explicacion:</strong> ${q.explanation}
-      </div>
-    `;
+    if (feedback) {
+      feedback.innerHTML = `
+        <div style="padding: 16px; background: var(--bg-secondary); border-radius: 12px; margin-top: 16px; border-left: 4px solid ${index === q.correct ? 'var(--subject-science)' : 'var(--subject-history)'};">
+          <strong>Explicacion:</strong> ${q.explanation}
+        </div>
+      `;
+    }
 
     const nextBtn = document.getElementById('quiz-next');
     if (nextBtn) {
@@ -322,8 +327,10 @@ const QuizSystem = {
   },
 
   showResult: function (container) {
-    const total = this.currentQuiz.length;
-    const percent = Math.round((this.score / total) * 100);
+    const quiz = this.currentQuiz;
+    if (!quiz) return;
+    const total = quiz.length;
+    const percent = total > 0 ? Math.round((this.score / total) * 100) : 0;
     let grade = '';
 
     if (percent >= 90) grade = 'Excelente!';
@@ -331,23 +338,30 @@ const QuizSystem = {
     else if (percent >= 50) grade = 'Bien, sigue practicando';
     else grade = 'Sigue intentando, tu puedes!';
 
+    const subjectKey = Object.keys(this.questions).find(k => this.questions[k] === this.currentQuiz);
+
     container.innerHTML = `
-      <div class="quiz-result">
+      <div class="quiz-result" role="region" aria-label="Resultado del quiz">
         <h3>Quiz Completado</h3>
-        <div class="score">${this.score}/${total}</div>
+        <div class="score" aria-live="polite">${this.score}/${total}</div>
         <p style="font-size: 1.25rem; font-weight: 600; color: var(--text-primary);">${grade}</p>
         <p>Respondiste correctamente ${this.score} de ${total} preguntas (${percent}%)</p>
-        <div class="progress-bar" style="max-width: 300px; margin: 16px auto;">
+        <div class="progress-bar" style="max-width: 300px; margin: 16px auto;" role="progressbar" aria-valuenow="${percent}" aria-valuemin="0" aria-valuemax="100">
           <div class="progress-fill" style="width: ${percent}%"></div>
         </div>
-        <button class="btn btn-primary" onclick="QuizSystem.init('${Object.keys(this.questions).find(k => this.questions[k] === this.currentQuiz)}')">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+        <button class="btn btn-primary" id="quiz-retry">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
           Intentar de nuevo
         </button>
       </div>
     `;
 
-    this.updateProgress(Object.keys(this.questions).find(k => this.questions[k] === this.currentQuiz), percent);
+    const retryBtn = document.getElementById('quiz-retry');
+    if (retryBtn && subjectKey) {
+      retryBtn.addEventListener('click', () => this.init(subjectKey));
+    }
+
+    this.updateProgress(subjectKey, percent);
   },
 
   showToast: function (message, type) {
@@ -356,13 +370,15 @@ const QuizSystem = {
 
     const toast = document.createElement('div');
     toast.className = `toast toast-${type}`;
+    toast.setAttribute('role', 'alert');
+    toast.setAttribute('aria-live', 'assertive');
+
+    const iconSvg = type === 'success'
+      ? '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>'
+      : '<circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>';
+
     toast.innerHTML = `
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        ${type === 'success'
-          ? '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>'
-          : '<circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>'
-        }
-      </svg>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${iconSvg}</svg>
       ${message}
     `;
     document.body.appendChild(toast);
@@ -374,15 +390,16 @@ const QuizSystem = {
   },
 
   updateProgress: function (subject, percent) {
+    if (!subject) return;
     try {
       const saved = JSON.parse(localStorage.getItem('studyProgress') || '{}');
       saved[subject] = Math.max(saved[subject] || 0, percent);
       localStorage.setItem('studyProgress', JSON.stringify(saved));
-
       const event = new CustomEvent('progressUpdated', { detail: saved });
       document.dispatchEvent(event);
     } catch (e) {
-      /* localStorage not available */
+      /* localStorage unavailable or full */
+      console.warn('No se pudo guardar el progreso:', e.message);
     }
   }
 };

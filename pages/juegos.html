@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Juegos educativos interactivos - Memoria, relacionar conceptos y preguntas rapidas.">
-  <title>Juegos Educativos - StudyBuddy</title>
+  <title>Juegos Educativos - AULA DIGITAL</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -15,55 +15,56 @@
 </head>
 <body>
   <div class="bg-gradient-animation" aria-hidden="true"></div>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
   <div id="navbar-placeholder"></div>
 
-  <div class="breadcrumbs container">
-    <a href="../index.html">Inicio</a>
-    <span class="separator">/</span>
-    <span class="current">Juegos Educativos</span>
-  </div>
+  <main id="main-content">
+    <nav aria-label="Breadcrumb">
+      <ol class="breadcrumbs container">
+        <li><a href="../index.html">Inicio</a></li>
+        <li class="separator" aria-hidden="true">/</li>
+        <li aria-current="page">Juegos Educativos</li>
+      </ol>
+    </nav>
 
-  <div class="games-header reveal">
-    <div class="container">
-      <h1>Juegos Educativos</h1>
-      <p>Aprende mientras te diviertes con nuestros juegos interactivos.</p>
-    </div>
-  </div>
-
-  <section class="section">
-    <div class="container">
-      <div class="games-grid stagger-children">
-
-        <!-- Memory Game -->
-        <div class="game-card">
-          <div id="memory-game">
-            <div style="text-align:center;padding:32px;">
-              <div class="loader-ring" style="position:static;display:inline-block;width:40px;height:40px;border-top-color:var(--accent-primary);animation:loaderSpin 1.5s infinite;"></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Matching Game -->
-        <div class="game-card">
-          <div id="matching-game">
-            <div style="text-align:center;padding:32px;">
-              <div class="loader-ring" style="position:static;display:inline-block;width:40px;height:40px;border-top-color:var(--accent-secondary);animation:loaderSpin 1.5s infinite;"></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Quick Quiz Game -->
-        <div class="game-card">
-          <div id="quick-quiz-game">
-            <div style="text-align:center;padding:32px;">
-              <div class="loader-ring" style="position:static;display:inline-block;width:40px;height:40px;border-top-color:var(--accent-tertiary);animation:loaderSpin 1.5s infinite;"></div>
-            </div>
-          </div>
-        </div>
-
+    <header class="games-header reveal">
+      <div class="container">
+        <h1>Juegos Educativos</h1>
+        <p>Aprende mientras te diviertes con nuestros juegos interactivos.</p>
       </div>
-    </div>
-  </section>
+    </header>
+
+    <section class="section">
+      <div class="container">
+        <div class="games-grid stagger-children">
+          <div class="game-card">
+            <div id="memory-game">
+              <div style="text-align:center;padding:32px;">
+                <div class="skeleton" style="width:40px;height:40px;margin:0 auto;border-radius:50%;"></div>
+                <p class="sr-only">Cargando juego de memoria...</p>
+              </div>
+            </div>
+          </div>
+          <div class="game-card">
+            <div id="matching-game">
+              <div style="text-align:center;padding:32px;">
+                <div class="skeleton" style="width:40px;height:40px;margin:0 auto;border-radius:50%;"></div>
+                <p class="sr-only">Cargando juego de relacionar...</p>
+              </div>
+            </div>
+          </div>
+          <div class="game-card">
+            <div id="quick-quiz-game">
+              <div style="text-align:center;padding:32px;">
+                <div class="skeleton" style="width:40px;height:40px;margin:0 auto;border-radius:50%;"></div>
+                <p class="sr-only">Cargando juego de preguntas rapidas...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <div id="footer-placeholder"></div>
 
@@ -74,11 +75,9 @@
   <script src="../js/main.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      setTimeout(() => {
-        Games.memory.init('memory-game');
-        Games.matching.init('matching-game', 'matematicas');
-        Games.quickQuiz.init('quick-quiz-game');
-      }, 200);
+      Games.memory.init('memory-game');
+      Games.matching.init('matching-game', 'matematicas');
+      Games.quickQuiz.init('quick-quiz-game');
     });
   </script>
 </body>

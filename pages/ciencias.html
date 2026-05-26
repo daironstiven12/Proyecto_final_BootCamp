@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Aprende Ciencias Naturales con StudyBuddy - Experimentos virtuales y quizzes.">
-  <title>Ciencias Naturales - StudyBuddy</title>
+  <meta name="description" content="Aprende Ciencias Naturales con AULA DIGITAL - Experimentos virtuales y quizzes.">
+  <title>Ciencias Naturales - AULA DIGITAL</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -18,105 +18,109 @@
 </head>
 <body>
   <div class="bg-gradient-animation" aria-hidden="true"></div>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
   <div id="navbar-placeholder"></div>
-  <div class="breadcrumbs container">
-    <a href="../index.html">Inicio</a>
-    <span class="separator">/</span>
-    <span class="current">Ciencias Naturales</span>
-  </div>
 
-  <section class="subject-hero">
-    <div class="container">
-      <div class="subject-hero-content reveal">
-        <div class="subject-hero-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M10 2v8l-6 4v4h16v-4l-6-4V2"/>
-            <path d="M4 18c2.5 2 5.5 3 8 3s5.5-1 8-3"/>
-          </svg>
-        </div>
-        <h1>Ciencias Naturales</h1>
-        <p>Explora el mundo natural, desde las celulas hasta el universo. Aprende con explicaciones claras y experimentos virtuales.</p>
-      </div>
-    </div>
-  </section>
+  <main id="main-content">
+    <nav aria-label="Breadcrumb">
+      <ol class="breadcrumbs container">
+        <li><a href="../index.html">Inicio</a></li>
+        <li class="separator" aria-hidden="true">/</li>
+        <li aria-current="page">Ciencias Naturales</li>
+      </ol>
+    </nav>
 
-  <section class="section">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">Temas</span>
-        <h2 class="section-title">Contenido de la materia</h2>
-      </div>
-      <div class="topics-grid stagger-children">
-        <div class="topic-card">
-          <h3>Biologia</h3>
-          <p>Estudio de los seres vivos: celulas, tejidos, organos y ecosistemas. Comprende la vida en todas sus formas.</p>
-          <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
-        </div>
-        <div class="topic-card">
-          <h3>Quimica</h3>
-          <p>Elementos, compuestos, reacciones quimicas y la tabla periodica. La ciencia de la materia y sus transformaciones.</p>
-          <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
-        </div>
-        <div class="topic-card">
-          <h3>Fisica</h3>
-          <p>Movimiento, fuerzas, energia, luz y sonido. Las leyes fundamentales que rigen el universo.</p>
-          <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
+    <header class="subject-hero">
+      <div class="container">
+        <div class="subject-hero-content reveal">
+          <div class="subject-hero-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M10 2v8l-6 4v4h16v-4l-6-4V2"/><path d="M4 18c2.5 2 5.5 3 8 3s5.5-1 8-3"/>
+            </svg>
+          </div>
+          <h1>Ciencias Naturales</h1>
+          <p>Explora el mundo natural, desde las celulas hasta el universo. Aprende con explicaciones claras y experimentos virtuales.</p>
         </div>
       </div>
-    </div>
-  </section>
+    </header>
 
-  <section class="section">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">Paso a paso</span>
-        <h2 class="section-title">El metodo cientifico</h2>
-      </div>
-      <div class="steps-container reveal">
-        <div class="step-item">
-          <div class="step-number">1</div>
-          <div class="step-content">
-            <h4>Observacion</h4>
-            <p>Observa un fenomeno natural y formula preguntas. Por ejemplo: "Por que las plantas crecen hacia la luz?"</p>
-          </div>
+    <section class="section" aria-labelledby="topics-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Temas</span>
+          <h2 class="section-title" id="topics-title">Contenido de la materia</h2>
         </div>
-        <div class="step-item">
-          <div class="step-number">2</div>
-          <div class="step-content">
-            <h4>Hipotesis</h4>
-            <p>Propone una explicacion tentativa. "Las plantas crecen hacia la luz porque necesitan luz para la fotosintesis."</p>
+        <div class="topics-grid stagger-children">
+          <div class="topic-card">
+            <h3>Biologia</h3>
+            <p>Estudio de los seres vivos: celulas, tejidos, organos y ecosistemas.</p>
+            <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
           </div>
-        </div>
-        <div class="step-item">
-          <div class="step-number">3</div>
-          <div class="step-content">
-            <h4>Experimentacion</h4>
-            <p>Disena y realiza experimentos para probar tu hipotesis. Coloca plantas en diferentes condiciones de luz.</p>
+          <div class="topic-card">
+            <h3>Quimica</h3>
+            <p>Elementos, compuestos, reacciones quimicas y la tabla periodica.</p>
+            <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
           </div>
-        </div>
-        <div class="step-item">
-          <div class="step-number">4</div>
-          <div class="step-content">
-            <h4>Conclusion</h4>
-            <p>Analiza los resultados y determina si tu hipotesis era correcta. Comparte tus descubrimientos.</p>
+          <div class="topic-card">
+            <h3>Fisica</h3>
+            <p>Movimiento, fuerzas, energia, luz y sonido. Las leyes del universo.</p>
+            <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section" id="quiz">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">Quiz</span>
-        <h2 class="section-title">Pon a prueba tus conocimientos</h2>
-        <p class="section-subtitle">Responde preguntas sobre biologia, quimica y fisica.</p>
+    <section class="section" aria-labelledby="steps-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Paso a paso</span>
+          <h2 class="section-title" id="steps-title">El metodo cientifico</h2>
+        </div>
+        <div class="steps-container reveal">
+          <div class="step-item">
+            <div class="step-number" aria-hidden="true">1</div>
+            <div class="step-content">
+              <h4>Observacion</h4>
+              <p>Observa un fenomeno natural y formula preguntas sobre el.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-number" aria-hidden="true">2</div>
+            <div class="step-content">
+              <h4>Hipotesis</h4>
+              <p>Propone una explicacion tentativa que puedas probar.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-number" aria-hidden="true">3</div>
+            <div class="step-content">
+              <h4>Experimentacion</h4>
+              <p>Disena y realiza experimentos para probar tu hipotesis.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-number" aria-hidden="true">4</div>
+            <div class="step-content">
+              <h4>Conclusion</h4>
+              <p>Analiza los resultados y determina si tu hipotesis era correcta.</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="reveal">
-        <div id="quiz-container" class="quiz-container"></div>
+    </section>
+
+    <section class="section" id="quiz" aria-labelledby="quiz-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Quiz</span>
+          <h2 class="section-title" id="quiz-title">Pon a prueba tus conocimientos</h2>
+        </div>
+        <div class="reveal">
+          <div id="quiz-container" class="quiz-container"></div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <div id="footer-placeholder"></div>
 
@@ -127,7 +131,7 @@
   <script src="../js/main.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      setTimeout(() => QuizSystem.init('ciencias'), 100);
+      QuizSystem.init('ciencias');
     });
   </script>
 </body>

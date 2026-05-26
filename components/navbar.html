@@ -1,30 +1,25 @@
-<nav class="navbar" id="main-navbar">
+<nav class="navbar" id="main-navbar" role="navigation" aria-label="Navegacion principal">
   <div class="container">
-    <a href="index.html" class="navbar-logo">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-        <path d="M2 17l10 5 10-5"/>
-        <path d="M2 12l10 5 10-5"/>
-      </svg>
-      <span>StudyBuddy</span>
+    <a href="index.html" class="navbar-logo" aria-label="Ir al inicio">
+      <p>AULA DIGITAL</p>
     </a>
-    <div class="navbar-links" id="nav-links">
-      <a href="../index.html">Inicio</a>
-      <a href="matematicas.html">Matematicas</a>
-      <a href="ciencias.html">Ciencias</a>
-      <a href="ingles.html">Ingles</a>
-      <a href="historia.html">Historia</a>
-      <a href="tecnologia.html">Tecnologia</a>
-      <a href="juegos.html">Juegos</a>
-      <a href="practicas.html">Practicas</a>
+    <div class="navbar-links" id="nav-links" role="menubar">
+      <a href="index.html" role="menuitem">Inicio</a>
+      <a href="pages/matematicas.html" role="menuitem">Matematicas</a>
+      <a href="pages/ciencias.html" role="menuitem">Ciencias</a>
+      <a href="pages/ingles.html" role="menuitem">Ingles</a>
+      <a href="pages/historia.html" role="menuitem">Historia</a>
+      <a href="pages/tecnologia.html" role="menuitem">Tecnologia</a>
+      <a href="pages/juegos.html" role="menuitem">Juegos</a>
+      <a href="pages/practicas.html" role="menuitem">Practicas</a>
     </div>
     <div class="navbar-actions">
       <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar modo oscuro">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="theme-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="theme-icon" aria-hidden="true">
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
         </svg>
       </button>
-      <button class="menu-toggle" id="menu-toggle" aria-label="Menu de navegacion">
+      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu de navegacion" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>

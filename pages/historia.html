@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Aprende Historia con StudyBuddy - Lineas de tiempo, eventos importantes y quizzes.">
-  <title>Historia - StudyBuddy</title>
+  <meta name="description" content="Aprende Historia con AULA DIGITAL - Lineas de tiempo, eventos importantes y quizzes.">
+  <title>Historia - AULA DIGITAL</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -18,105 +18,109 @@
 </head>
 <body>
   <div class="bg-gradient-animation" aria-hidden="true"></div>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
   <div id="navbar-placeholder"></div>
-  <div class="breadcrumbs container">
-    <a href="../index.html">Inicio</a>
-    <span class="separator">/</span>
-    <span class="current">Historia</span>
-  </div>
 
-  <section class="subject-hero">
-    <div class="container">
-      <div class="subject-hero-content reveal">
-        <div class="subject-hero-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/>
-            <polyline points="12 6 12 12 16 14"/>
-          </svg>
-        </div>
-        <h1>Historia</h1>
-        <p>Viaja a traves del tiempo y descubre los eventos, personajes y culturas que han moldeado nuestra civilizacion.</p>
-      </div>
-    </div>
-  </section>
+  <main id="main-content">
+    <nav aria-label="Breadcrumb">
+      <ol class="breadcrumbs container">
+        <li><a href="../index.html">Inicio</a></li>
+        <li class="separator" aria-hidden="true">/</li>
+        <li aria-current="page">Historia</li>
+      </ol>
+    </nav>
 
-  <section class="section">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">Temas</span>
-        <h2 class="section-title">Contenido de la materia</h2>
-      </div>
-      <div class="topics-grid stagger-children">
-        <div class="topic-card">
-          <h3>Edad Antigua</h3>
-          <p>Las grandes civilizaciones: Egipto, Grecia, Roma. Descubre sus aportes a la humanidad.</p>
-          <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
-        </div>
-        <div class="topic-card">
-          <h3>Edad Media</h3>
-          <p>Feudalismo, cruzadas, el imperio bizantino y el renacimiento cultural. Una epoca de grandes cambios.</p>
-          <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
-        </div>
-        <div class="topic-card">
-          <h3>Edad Moderna</h3>
-          <p>Descubrimientos, revoluciones, guerras mundiales y la era digital. Como llegamos hasta aqui.</p>
-          <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
+    <header class="subject-hero">
+      <div class="container">
+        <div class="subject-hero-content reveal">
+          <div class="subject-hero-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <h1>Historia</h1>
+          <p>Viaja a traves del tiempo y descubre los eventos, personajes y culturas que han moldeado nuestra civilizacion.</p>
         </div>
       </div>
-    </div>
-  </section>
+    </header>
 
-  <section class="section">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">Linea del tiempo</span>
-        <h2 class="section-title">Eventos historicos importantes</h2>
-      </div>
-      <div class="steps-container reveal">
-        <div class="step-item">
-          <div class="step-number">3500</div>
-          <div class="step-content">
-            <h4>Invencion de la escritura</h4>
-            <p>En Mesopotamia, los sumerios inventaron la escritura cuneiforme, marcando el inicio de la historia registrada.</p>
-          </div>
+    <section class="section" aria-labelledby="topics-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Temas</span>
+          <h2 class="section-title" id="topics-title">Contenido de la materia</h2>
         </div>
-        <div class="step-item">
-          <div class="step-number">753</div>
-          <div class="step-content">
-            <h4>Fundacion de Roma</h4>
-            <p>Segun la leyenda, Romulo fundo la ciudad de Roma en el 753 a.C., que se convertiria en un vasto imperio.</p>
+        <div class="topics-grid stagger-children">
+          <div class="topic-card">
+            <h3>Edad Antigua</h3>
+            <p>Las grandes civilizaciones: Egipto, Grecia, Roma. Descubre sus aportes.</p>
+            <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
           </div>
-        </div>
-        <div class="step-item">
-          <div class="step-number">1492</div>
-          <div class="step-content">
-            <h4>Descubrimiento de America</h4>
-            <p>Cristobal Colon llego a America el 12 de octubre de 1492, cambiando el curso de la historia mundial.</p>
+          <div class="topic-card">
+            <h3>Edad Media</h3>
+            <p>Feudalismo, cruzadas y el renacimiento cultural. Una epoca de cambios.</p>
+            <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
           </div>
-        </div>
-        <div class="step-item">
-          <div class="step-number">1789</div>
-          <div class="step-content">
-            <h4>Revolucion Francesa</h4>
-            <p>El pueblo de Francia se levanto contra la monarquia absoluta, proclamando los ideales de libertad, igualdad y fraternidad.</p>
+          <div class="topic-card">
+            <h3>Edad Moderna</h3>
+            <p>Descubrimientos, revoluciones, guerras mundiales y la era digital.</p>
+            <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section" id="quiz">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">Quiz</span>
-        <h2 class="section-title">Pon a prueba tu conocimiento historico</h2>
-        <p class="section-subtitle">Responde preguntas sobre las diferentes epocas de la historia.</p>
+    <section class="section" aria-labelledby="timeline-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Linea del tiempo</span>
+          <h2 class="section-title" id="timeline-title">Eventos historicos importantes</h2>
+        </div>
+        <div class="steps-container reveal">
+          <div class="step-item">
+            <div class="step-number" aria-hidden="true">3500 a.C.</div>
+            <div class="step-content">
+              <h4>Invencion de la escritura</h4>
+              <p>Los sumerios inventaron la escritura cuneiforme en Mesopotamia.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-number" aria-hidden="true">753 a.C.</div>
+            <div class="step-content">
+              <h4>Fundacion de Roma</h4>
+              <p>Segun la leyenda, Romulo fundo la ciudad de Roma.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-number" aria-hidden="true">1492</div>
+            <div class="step-content">
+              <h4>Descubrimiento de America</h4>
+              <p>Cristobal Colon llego a America el 12 de octubre de 1492.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-number" aria-hidden="true">1789</div>
+            <div class="step-content">
+              <h4>Revolucion Francesa</h4>
+              <p>El pueblo de Francia se levanto proclamando libertad, igualdad y fraternidad.</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="reveal">
-        <div id="quiz-container" class="quiz-container"></div>
+    </section>
+
+    <section class="section" id="quiz" aria-labelledby="quiz-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Quiz</span>
+          <h2 class="section-title" id="quiz-title">Pon a prueba tu conocimiento historico</h2>
+        </div>
+        <div class="reveal">
+          <div id="quiz-container" class="quiz-container"></div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <div id="footer-placeholder"></div>
 
@@ -127,7 +131,7 @@
   <script src="../js/main.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      setTimeout(() => QuizSystem.init('historia'), 100);
+      QuizSystem.init('historia');
     });
   </script>
 </body>

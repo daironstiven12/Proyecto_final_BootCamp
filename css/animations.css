@@ -1,9 +1,9 @@
 /* ============================================
-   ANIMATIONS - Background particles, scroll effects,
-   hover transitions, and motion effects
+   ANIMATIONS.CSS - Motion & micro-interactions
+   Human-Centered Engineering: purposeful motion
    ============================================ */
 
-/* ---- Background Particles ---- */
+/* ---- Background Particles (Canvas) ---- */
 #particles-canvas {
   position: fixed;
   top: 0;
@@ -42,11 +42,11 @@
   100% { background-position: 0% 50%; }
 }
 
-/* ---- Scroll animations ---- */
+/* ---- Scroll animations (Intersection Observer) ---- */
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .reveal.visible {
@@ -56,8 +56,8 @@
 
 .reveal-left {
   opacity: 0;
-  transform: translateX(-40px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: translateX(-30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .reveal-left.visible {
@@ -67,8 +67,8 @@
 
 .reveal-right {
   opacity: 0;
-  transform: translateX(40px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: translateX(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .reveal-right.visible {
@@ -78,8 +78,8 @@
 
 .reveal-scale {
   opacity: 0;
-  transform: scale(0.9);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: scale(0.92);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .reveal-scale.visible {
@@ -87,11 +87,11 @@
   transform: scale(1);
 }
 
-/* ---- Stagger children animations ---- */
+/* ---- Stagger children ---- */
 .stagger-children > * {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateY(16px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 .stagger-children.visible > *:nth-child(1) { transition-delay: 0.05s; }
@@ -102,6 +102,8 @@
 .stagger-children.visible > *:nth-child(6) { transition-delay: 0.3s; }
 .stagger-children.visible > *:nth-child(7) { transition-delay: 0.35s; }
 .stagger-children.visible > *:nth-child(8) { transition-delay: 0.4s; }
+.stagger-children.visible > *:nth-child(9) { transition-delay: 0.45s; }
+.stagger-children.visible > *:nth-child(10) { transition-delay: 0.5s; }
 
 .stagger-children.visible > * {
   opacity: 1;
@@ -114,52 +116,18 @@
 }
 
 .hover-lift:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
 }
 
-.hover-glow:hover {
-  box-shadow: 0 0 20px var(--glow-color, rgba(99, 102, 241, 0.3));
-}
-
-.hover-scale {
-  transition: transform 0.3s ease;
-}
-
-.hover-scale:hover {
-  transform: scale(1.05);
-}
-
-/* ---- Page transitions ---- */
+/* ---- Page entrance animation ---- */
 .page-enter {
-  animation: pageEnter 0.5s ease forwards;
+  animation: pageEnter 0.4s ease forwards;
 }
 
 @keyframes pageEnter {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ---- Card entrance animation ---- */
-.card-enter {
-  animation: cardEnter 0.5s ease forwards;
-}
-
-@keyframes cardEnter {
-  from {
-    opacity: 0;
-    transform: scale(0.95) translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* ---- Skeleton loading ---- */
@@ -180,17 +148,17 @@
   100% { background-position: -200% 0; }
 }
 
-/* ---- Float animation for decorative elements ---- */
+/* ---- Float animation (decorative only) ---- */
 .float-animation {
   animation: float 6s ease-in-out infinite;
 }
 
 @keyframes float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
+  50% { transform: translateY(-12px); }
 }
 
-/* ---- Pulse dot ---- */
+/* ---- Pulse dot (status indicator) ---- */
 .pulse-dot {
   width: 8px;
   height: 8px;
@@ -204,25 +172,19 @@
   50% { transform: scale(1.5); opacity: 0.5; }
 }
 
-/* ---- Slide in from bottom ---- */
+/* ---- Slide up (for toast / notifications) ---- */
 .slide-up {
-  animation: slideUp 0.6s ease forwards;
+  animation: slideUp 0.3s ease forwards;
 }
 
 @keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* ---- Fade in ---- */
 .fade-in {
-  animation: fadeIn 0.5s ease forwards;
+  animation: fadeIn 0.3s ease forwards;
 }
 
 @keyframes fadeIn {
@@ -230,7 +192,7 @@
   to { opacity: 1; }
 }
 
-/* ---- Ripple effect for buttons ---- */
+/* ---- Ripple effect (buttons) ---- */
 .ripple {
   position: relative;
   overflow: hidden;
@@ -256,12 +218,35 @@
 }
 
 @keyframes rippleEffect {
-  from {
-    transform: scale(0);
-    opacity: 0.5;
+  from { transform: scale(0); opacity: 0.4; }
+  to { transform: scale(4); opacity: 0; }
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .bg-gradient-animation {
+    animation: none;
   }
-  to {
-    transform: scale(4);
-    opacity: 0;
+
+  .reveal,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale {
+    opacity: 1;
+    transform: none;
+  }
+
+  .stagger-children > * {
+    opacity: 1;
+    transform: none;
+    transition-delay: 0s !important;
+  }
+
+  .hover-lift:hover {
+    transform: none;
+  }
+
+  .float-animation {
+    animation: none;
   }
 }

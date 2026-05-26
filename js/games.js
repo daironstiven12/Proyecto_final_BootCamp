@@ -1,10 +1,13 @@
 /* ============================================
    GAMES.JS - Educational mini games
-   Memory game, matching game, quick quiz
+   Human-Centered Engineering: engaging,
+   accessible, with proper state management
    ============================================ */
 
 const Games = {
-  /* ---- Memory Game ---- */
+  /* ==========================================
+     MEMORY GAME
+     ========================================== */
   memory: {
     cards: [],
     flippedCards: [],
@@ -15,12 +18,12 @@ const Games = {
     symbols: [
       { icon: '+', name: 'suma' },
       { icon: '-', name: 'resta' },
-      { icon: 'x', name: 'multiplicacion' },
-      { icon: '/', name: 'division' },
+      { icon: '\u00D7', name: 'multiplicacion' },
+      { icon: '\u00F7', name: 'division' },
       { icon: '=', name: 'igualdad' },
       { icon: '%', name: 'porcentaje' },
-      { icon: 'pi', name: 'pi' },
-      { icon: 'sqrt', name: 'raiz' }
+      { icon: '\u03C0', name: 'pi' },
+      { icon: '\u221A', name: 'raiz' }
     ],
 
     init: function (containerId) {
@@ -64,36 +67,49 @@ const Games = {
           </div>
         </div>
         <p style="font-size:0.875rem;color:var(--text-secondary);margin-bottom:16px;">
-          Encuentra los pares de simbolos matematicos. Toca dos cartas para descubrirlas.
+          Encuentra los pares de simbolos matematicos.
         </p>
-        <div class="memory-grid" id="memory-grid">
-          ${this.cards.map(card => `
+        <div class="memory-grid" id="memory-grid" role="grid" aria-label="Tablero de memoria">
+          ${this.cards.map((card, idx) => `
             <div class="memory-card ${card.isMatched ? 'matched' : ''} ${card.isFlipped ? 'flipped' : ''}"
-                 data-id="${card.id}">
+                 data-id="${card.id}" role="gridcell" tabindex="0"
+                 aria-label="Carta ${idx + 1}${card.isMatched ? ', encontrada' : ''}">
               <div class="memory-card-inner">
-                <div class="memory-card-face memory-card-front">?</div>
-                <div class="memory-card-face memory-card-back">${card.icon}</div>
+                <div class="memory-card-face memory-card-front" aria-hidden="true">?</div>
+                <div class="memory-card-face memory-card-back" aria-hidden="true">${card.icon}</div>
               </div>
             </div>
           `).join('')}
         </div>
         <div style="text-align:center;margin-top:16px;">
-          <button class="btn btn-secondary" onclick="Games.memory.init('memory-game')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+          <button class="btn btn-secondary" data-memory-reset="${container.id}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;" aria-hidden="true"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
             Reiniciar juego
           </button>
         </div>
       `;
 
       this.bindEvents(container);
+
+      const resetBtn = container.querySelector('[data-memory-reset]');
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => this.init(resetBtn.dataset.memoryReset));
+      }
     },
 
     bindEvents: function (container) {
       container.querySelectorAll('.memory-card').forEach((el) => {
-        el.addEventListener('click', () => {
+        const handler = () => {
           if (this.isLocked) return;
           const id = parseInt(el.dataset.id);
           this.flipCard(id, el);
+        };
+        el.addEventListener('click', handler);
+        el.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            handler();
+          }
         });
       });
     },
@@ -108,7 +124,8 @@ const Games = {
 
       if (this.flippedCards.length === 2) {
         this.moves++;
-        document.getElementById('memory-moves').textContent = this.moves;
+        const movesEl = document.getElementById('memory-moves');
+        if (movesEl) movesEl.textContent = this.moves;
         this.checkMatch();
       }
     },
@@ -122,8 +139,11 @@ const Games = {
         second.card.isMatched = true;
         first.element.classList.add('matched');
         second.element.classList.add('matched');
+        first.element.setAttribute('aria-label', first.element.getAttribute('aria-label') + ', encontrada');
+        second.element.setAttribute('aria-label', second.element.getAttribute('aria-label') + ', encontrada');
         this.matchedPairs++;
-        document.getElementById('memory-pairs').textContent = `${this.matchedPairs}/8`;
+        const pairsEl = document.getElementById('memory-pairs');
+        if (pairsEl) pairsEl.textContent = `${this.matchedPairs}/8`;
         this.flippedCards = [];
         this.isLocked = false;
 
@@ -143,8 +163,10 @@ const Games = {
     },
 
     showMemoryWin: function () {
-      const container = document.getElementById('memory-game');
+      const container = document.querySelector('#memory-game');
+      if (!container) return;
       const winMsg = document.createElement('div');
+      winMsg.setAttribute('role', 'alert');
       winMsg.style.cssText = `
         text-align: center; padding: 20px;
         background: rgba(16, 185, 129, 0.08);
@@ -157,13 +179,16 @@ const Games = {
     }
   },
 
-  /* ---- Matching Game (Concepts) ---- */
+  /* ==========================================
+     MATCHING GAME (Conceptos)
+     ========================================== */
   matching: {
     pairs: [],
     selectedItem: null,
     matchedCount: 0,
     column1: [],
     column2: [],
+    currentSubject: '',
 
     datasets: {
       matematicas: {
@@ -171,10 +196,10 @@ const Games = {
         pairs: [
           { left: 'Suma', right: '+' },
           { left: 'Resta', right: '-' },
-          { left: 'Multiplicacion', right: 'x' },
-          { left: 'Division', right: '/' },
+          { left: 'Multiplicacion', right: '\u00D7' },
+          { left: 'Division', right: '\u00F7' },
           { left: 'Porcentaje', right: '%' },
-          { left: 'Raiz cuadrada', right: 'sqrt' }
+          { left: 'Raiz cuadrada', right: '\u221A' }
         ]
       },
       ciencias: {
@@ -205,8 +230,14 @@ const Games = {
       const container = document.getElementById(containerId);
       if (!container) return;
 
-      const data = this.datasets[subject] || this.datasets.matematicas;
-      this.pairs = [...data.pairs];
+      const data = this.datasets[subject];
+      if (!data) {
+        this.init(containerId, 'matematicas');
+        return;
+      }
+
+      this.currentSubject = subject;
+      this.pairs = data.pairs.map(p => ({ ...p, matched: false }));
       this.matchedCount = 0;
       this.selectedItem = null;
 
@@ -235,40 +266,53 @@ const Games = {
         <p style="font-size:0.875rem;color:var(--text-secondary);margin-bottom:16px;">
           ${title}: Selecciona un elemento de la izquierda y luego su par en la derecha.
         </p>
-        <div class="matching-game">
+        <div class="matching-game" role="region" aria-label="Juego de relacionar conceptos">
           <div class="matching-column">
             <h4>Conceptos</h4>
-            ${this.column1.map((p, i) => `
+            ${this.column1.map(p => `
               <div class="matching-item ${p.matched ? 'matched' : ''}"
-                   data-side="left" data-id="${i}" ${p.matched ? 'style="opacity:0.4"' : ''}>
+                   data-side="left" data-key="${p.left}" ${p.matched ? 'aria-disabled="true"' : ''}>
                 ${p.left}
               </div>
             `).join('')}
           </div>
           <div class="matching-column">
             <h4>Definiciones</h4>
-            ${this.column2.map((p, i) => `
+            ${this.column2.map(p => `
               <div class="matching-item ${p.matched ? 'matched' : ''}"
-                   data-side="right" data-id="${i}" ${p.matched ? 'style="opacity:0.4"' : ''}>
+                   data-side="right" data-key="${p.right}" ${p.matched ? 'aria-disabled="true"' : ''}>
                 ${p.right}
               </div>
             `).join('')}
           </div>
         </div>
         <div style="text-align:center;">
-          <button class="btn btn-secondary" onclick="Games.matching.init('matching-game', '${Object.keys(this.datasets).find(k => this.datasets[k].pairs.length === this.pairs.length) || 'matematicas'}')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+          <button class="btn btn-secondary" id="matching-reset">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;" aria-hidden="true"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
             Reiniciar
           </button>
         </div>
       `;
 
       this.bindEvents(container);
+
+      const resetBtn = document.getElementById('matching-reset');
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => this.init(container.id, this.currentSubject));
+      }
     },
 
     bindEvents: function (container) {
       container.querySelectorAll('.matching-item:not(.matched)').forEach((el) => {
         el.addEventListener('click', () => this.handleClick(el, container));
+        el.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.handleClick(el, container);
+          }
+        });
+        el.setAttribute('tabindex', '0');
+        el.setAttribute('role', 'button');
       });
     },
 
@@ -293,27 +337,29 @@ const Games = {
       const leftEl = first.dataset.side === 'left' ? first : second;
       const rightEl = first.dataset.side === 'right' ? first : second;
 
-      const leftText = leftEl.textContent.trim();
-      const rightText = rightEl.textContent.trim();
+      const leftKey = leftEl.dataset.key;
+      const rightKey = rightEl.dataset.key;
 
       const isMatch = this.pairs.some(p =>
-        p.left === leftText && p.right === rightText
+        p.left === leftKey && p.right === rightKey
       );
 
       if (isMatch) {
         this.pairs.forEach(p => {
-          if (p.left === leftText && p.right === rightText) {
+          if (p.left === leftKey && p.right === rightKey) {
             p.matched = true;
           }
         });
         leftEl.classList.add('matched');
         rightEl.classList.add('matched');
         leftEl.classList.remove('selected');
-        rightEl.classList.remove('selected');
+        leftEl.setAttribute('aria-disabled', 'true');
+        rightEl.setAttribute('aria-disabled', 'true');
         leftEl.style.opacity = '0.4';
         rightEl.style.opacity = '0.4';
         this.matchedCount++;
-        document.getElementById('matching-count').textContent = `${this.matchedCount}/${this.pairs.length}`;
+        const countEl = document.getElementById('matching-count');
+        if (countEl) countEl.textContent = `${this.matchedCount}/${this.pairs.length}`;
 
         if (this.matchedCount === this.pairs.length) {
           setTimeout(() => this.showMatchingWin(container), 500);
@@ -333,6 +379,7 @@ const Games = {
 
     showMatchingWin: function (container) {
       const msg = document.createElement('div');
+      msg.setAttribute('role', 'alert');
       msg.style.cssText = `
         text-align: center; padding: 16px; margin-top: 16px;
         background: rgba(16, 185, 129, 0.08);
@@ -345,7 +392,9 @@ const Games = {
     }
   },
 
-  /* ---- Quick Quiz Game ---- */
+  /* ==========================================
+     QUICK QUIZ GAME
+     ========================================== */
   quickQuiz: {
     questions: [
       { q: '2 + 2 = ?', options: ['3', '4', '5', '6'], answer: 1 },
@@ -358,28 +407,38 @@ const Games = {
     score: 0,
     timeLeft: 15,
     timer: null,
+    container: null,
 
     init: function (containerId) {
       const container = document.getElementById(containerId);
       if (!container) return;
 
+      this.cleanup();
+      this.container = container;
       this.currentQ = 0;
       this.score = 0;
       this.timeLeft = 15;
       this.render(container);
-      this.startTimer(container);
+      this.startTimer();
     },
 
-    startTimer: function (container) {
-      if (this.timer) clearInterval(this.timer);
+    cleanup: function () {
+      if (this.timer) {
+        clearInterval(this.timer);
+        this.timer = null;
+      }
+    },
+
+    startTimer: function () {
+      this.cleanup();
       this.timer = setInterval(() => {
         this.timeLeft--;
         const timerEl = document.getElementById('quick-timer');
         if (timerEl) timerEl.textContent = this.timeLeft;
 
         if (this.timeLeft <= 0) {
-          clearInterval(this.timer);
-          this.nextQuestion(container);
+          this.cleanup();
+          this.nextQuestion();
         }
       }, 1000);
     },
@@ -403,11 +462,11 @@ const Games = {
         <p style="font-size:0.875rem;color:var(--text-secondary);margin-bottom:16px;">
           Responde lo mas rapido posible. Tienes 15 segundos por pregunta.
         </p>
-        <div class="quiz-question" style="border: 1px solid var(--border-color); border-radius: 12px; padding: 24px;">
+        <div class="quiz-question" style="border: 1px solid var(--border-color); border-radius: 12px; padding: 24px;" role="region" aria-label="Pregunta rapida ${this.currentQ + 1}">
           <h3 style="margin-bottom: 16px;">${q.q}</h3>
-          <div class="quiz-options">
+          <div class="quiz-options" role="radiogroup">
             ${q.options.map((opt, i) => `
-              <button class="quiz-option" data-answer="${i}">
+              <button class="quiz-option" data-answer="${i}" role="radio" aria-checked="false">
                 <span class="quiz-option-letter">${String.fromCharCode(65 + i)}</span>
                 <span>${opt}</span>
               </button>
@@ -424,33 +483,36 @@ const Games = {
       container.querySelectorAll('.quiz-option').forEach((btn) => {
         btn.addEventListener('click', () => {
           const answer = parseInt(btn.dataset.answer);
+          if (isNaN(answer)) return;
+          this.cleanup();
+
           if (answer === q.answer) {
             this.score++;
             btn.classList.add('correct');
           } else {
             btn.classList.add('incorrect');
-            container.querySelector(`.quiz-option[data-answer="${q.answer}"]`).classList.add('correct');
+            const correctEl = container.querySelector(`.quiz-option[data-answer="${q.answer}"]`);
+            if (correctEl) correctEl.classList.add('correct');
           }
           container.querySelectorAll('.quiz-option').forEach(b => b.disabled = true);
-          clearInterval(this.timer);
-          setTimeout(() => this.nextQuestion(container), 1000);
+          setTimeout(() => this.nextQuestion(), 1000);
         });
       });
     },
 
-    nextQuestion: function (container) {
+    nextQuestion: function () {
       this.currentQ++;
       this.timeLeft = 15;
-      if (this.currentQ < this.questions.length) {
-        this.render(container);
-        this.startTimer(container);
-      } else {
-        this.render(container);
+      if (this.currentQ < this.questions.length && this.container) {
+        this.render(this.container);
+        this.startTimer();
+      } else if (this.container) {
+        this.render(this.container);
       }
     },
 
     showQuickResult: function (container) {
-      clearInterval(this.timer);
+      this.cleanup();
       const total = this.questions.length;
       container.innerHTML = `
         <div class="game-card-header">
@@ -459,7 +521,7 @@ const Games = {
             Puntaje final: ${this.score}
           </span>
         </div>
-        <div style="text-align:center;padding:32px;">
+        <div style="text-align:center;padding:32px;" role="region" aria-label="Resultado del juego">
           <h3 style="font-size:1.5rem;margin-bottom:16px;">Juego terminado!</h3>
           <div style="font-size:3rem;font-weight:800;color:var(--accent-primary);margin-bottom:16px;">
             ${this.score}/${total}
@@ -467,12 +529,17 @@ const Games = {
           <p style="color:var(--text-secondary);margin-bottom:24px;">
             Respondiste correctamente ${this.score} de ${total} preguntas.
           </p>
-          <button class="btn btn-primary" onclick="Games.quickQuiz.init('quick-quiz-game')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+          <button class="btn btn-primary" id="quickquiz-retry">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;" aria-hidden="true"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
             Jugar de nuevo
           </button>
         </div>
       `;
+
+      const retryBtn = document.getElementById('quickquiz-retry');
+      if (retryBtn) {
+        retryBtn.addEventListener('click', () => this.init('quick-quiz-game'));
+      }
     }
   }
 };
