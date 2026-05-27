@@ -176,6 +176,7 @@ const QuizSystem = {
   explanation: '“Escuela” está escrita correctamente.'
 }
     ],
+    
     Ética: [
     {
   question: '¿Qué valor nos enseña a decir la verdad?',
