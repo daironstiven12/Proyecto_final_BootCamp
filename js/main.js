@@ -64,6 +64,7 @@ const App = {
             <a href="${p}index.html" role="menuitem"${isActive('index.html')}>Inicio</a>
             <a href="${p}pages/matematicas.html" role="menuitem"${isActive('matematicas.html')}>Matematicas</a>
             <a href="${p}pages/ciencias.html" role="menuitem"${isActive('ciencias.html')}>Ciencias</a>
+            <a href="${p}pages/etica.html" role="menuitem"${isActive('etica.html')}>Ética</a>
             <a href="${p}pages/ingles.html" role="menuitem"${isActive('ingles.html')}>Ingles</a>
             <a href="${p}pages/historia.html" role="menuitem"${isActive('historia.html')}>Historia</a>
             <a href="${p}pages/tecnologia.html" role="menuitem"${isActive('tecnologia.html')}>Tecnologia</a>
@@ -108,6 +109,7 @@ const App = {
               <div class="footer-links">
                 <a href="${p}pages/matematicas.html">Matematicas</a>
                 <a href="${p}pages/ciencias.html">Ciencias</a>
+                <a href="${p}pages/etica.html">Ética</a>
                 <a href="${p}pages/ingles.html">Ingles</a>
                 <a href="${p}pages/historia.html">Historia</a>
                 <a href="${p}pages/español.html">Tecnologia</a>
@@ -351,6 +353,7 @@ const App = {
     const subjects = {
       matematicas: { label: 'Matematicas', color: 'math' },
       ciencias: { label: 'Ciencias', color: 'science' },
+      etica: { label: 'Ética', color: 'ethics' },
       ingles: { label: 'Ingles', color: 'english' },
       historia: { label: 'Historia', color: 'history' },
       tecnologia: { label: 'Tecnologia', color: 'tech' }

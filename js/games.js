@@ -224,6 +224,7 @@ const Games = {
           { left: 'School', right: 'Escuela' }
         ]
       }
+      
     },
 
     init: function (containerId, subject) {

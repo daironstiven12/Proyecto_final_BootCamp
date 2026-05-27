@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aprende Ética con AULA DIGITAL - Experimentos virtuales y quizzes.">
+  <title>Ética - AULA DIGITAL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/loader.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <style>
+    :root { --subject-accent: var(--subject-science); --subject-accent-bg: rgba(16, 185, 129, 0.08); }
+  </style>
+</head>
+<body>
+  <div class="bg-gradient-animation" aria-hidden="true"></div>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+  <div id="navbar-placeholder"></div>
+
+  <main id="main-content">
+    <nav aria-label="Breadcrumb">
+      <ol class="breadcrumbs container">
+        <li><a href="../index.html">Inicio</a></li>
+        <li class="separator" aria-hidden="true">/</li>
+        <li aria-current="page">Ética</li>
+      </ol>
+    </nav>
+
+    <header class="subject-hero">
+      <div class="container">
+        <div class="subject-hero-content reveal">
+          <div class="subject-hero-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M10 2v8l-6 4v4h16v-4l-6-4V2"/><path d="M4 18c2.5 2 5.5 3 8 3s5.5-1 8-3"/>
+            </svg>
+          </div>
+          <h1>Ética</h1>
+          <p>La etica es la rama de la filosofía que estudia la conducta humana, lo correcto y lo incorrecto, lo bueno y lo malo, la moral, el buen vivir, la virtud, la felicidad y el deber.</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="section" aria-labelledby="topics-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Temas</span>
+          <h2 class="section-title" id="topics-title">Contenido de la materia</h2>
+        </div>
+        <div class="topics-grid stagger-children">
+          <div class="topic-card">
+            <h3>Metaética</h3>
+            <p>Analiza el origen, el significado y la naturaleza de los conceptos morales. Se pregunta de dónde vienen los juicios morales y si los valores son objetivos o subjetivos.</p>
+            <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
+          </div>
+          <div class="topic-card">
+            <h3>Ética normativa</h3>
+            <p>Se encarga de establecer los criterios y normas que guían lo que debe ser considerado correcto o incorrecto. Propone teorías generales sobre cómo debemos actuar.</p>
+            <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
+          </div>
+          <div class="topic-card">
+            <h3>Ética aplicada</h3>
+            <p> Examina cómo se deben aplicar los principios morales y las normativas a situaciones específicas y prácticas de la vida real. Incluye áreas concretas como la ética médica, la ética empresarial o la ética ambiental.</p>
+            <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
+          </div>
+           <div class="topic-card">
+            <h3>Ética descriptiva</h3>
+            <p>  Estudia y describe de manera científica, sociológica o histórica los comportamientos morales reales de las personas y las sociedades, sin juzgar si son correctos o incorrectos.</p>
+            <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="steps-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Paso a paso</span>
+          <h2 class="section-title" id="steps-title">El metodo Ético</h2>
+        </div>
+        <div class="steps-container reveal">
+          <div class="step-item">
+            <div class="step-number" aria-hidden="true">1</div>
+            <div class="step-content">
+              <h4>Observacion</h4>
+              <p>Observa un fenomeno natural y formula preguntas sobre el.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-number" aria-hidden="true">2</div>
+            <div class="step-content">
+              <h4>Hipotesis</h4>
+              <p>Propone una explicacion tentativa que puedas probar.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-number" aria-hidden="true">3</div>
+            <div class="step-content">
+              <h4>Experimentacion</h4>
+              <p>Disena y realiza experimentos para probar tu hipotesis.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-number" aria-hidden="true">4</div>
+            <div class="step-content">
+              <h4>Conclusion</h4>
+              <p>Analiza los resultados y determina si tu hipotesis era correcta.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="quiz" aria-labelledby="quiz-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Quiz</span>
+          <h2 class="section-title" id="quiz-title">Pon a prueba tus conocimientos</h2>
+        </div>
+        <div class="reveal">
+          <div id="quiz-container" class="quiz-container"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="../js/loader.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/quiz.js"></script>
+  <script src="../js/games.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      QuizSystem.init('ciencias');
+    });
+  </script>
+</body>
+</html>

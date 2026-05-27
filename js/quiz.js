@@ -175,6 +175,63 @@ const QuizSystem = {
   correct: 1,
   explanation: '“Escuela” está escrita correctamente.'
 }
+    ],
+    Ética: [
+    {
+  question: '¿Qué valor nos enseña a decir la verdad?',
+  options: [
+    'Respeto',
+    'Honestidad',
+    'Responsabilidad',
+    'Solidaridad'
+  ],
+  correct: 1,
+  explanation: 'La honestidad consiste en decir la verdad y actuar correctamente.'
+},
+{
+  question: '¿Qué debemos hacer para respetar a los demás?',
+  options: [
+    'Gritarles',
+    'Ignorarlos',
+    'Escuchar y tratar bien a las personas',
+    'Pelear con ellos'
+  ],
+  correct: 2,
+  explanation: 'El respeto significa tratar bien y escuchar a las demás personas.'
+},
+{
+  question: '¿Qué significa ser responsable?',
+  options: [
+    'Cumplir con tareas y deberes',
+    'Romper las reglas',
+    'Mentir siempre',
+    'No ayudar a nadie'
+  ],
+  correct: 0,
+  explanation: 'La responsabilidad es cumplir correctamente con nuestros deberes.'
+},
+{
+  question: '¿Qué valor se demuestra ayudando a otros?',
+  options: [
+    'Solidaridad',
+    'Enojo',
+    'Desorden',
+    'Egoísmo'
+  ],
+  correct: 0,
+  explanation: 'La solidaridad consiste en ayudar y apoyar a otras personas.'
+},
+{
+  question: '¿Qué debemos hacer cuando cometemos un error?',
+  options: [
+    'Escapar',
+    'Culpar a otros',
+    'Reconocerlo y pedir disculpas',
+    'Ignorarlo'
+  ],
+  correct: 2,
+  explanation: 'Reconocer los errores y pedir disculpas demuestra respeto y honestidad.'
+}
     ]
   },
 
