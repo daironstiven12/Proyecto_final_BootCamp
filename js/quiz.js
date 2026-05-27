@@ -139,52 +139,42 @@ const QuizSystem = {
         explanation: 'Leonardo da Vinci pinto la Mona Lisa entre 1503 y 1519.'
       }
     ],
-    tecnologia: [
-      {
-        question: 'Que significa HTML?',
-        options: [
-          'Hyper Text Markup Language',
-          'High Tech Modern Language',
-          'Home Tool Markup Language',
-          'Hyper Transfer Main Language'
-        ],
-        correct: 0,
-        explanation: 'HTML significa HyperText Markup Language, el lenguaje base de la web.'
-      },
-      {
-        question: 'Cual es el componente principal de un computador?',
-        options: ['Monitor', 'Teclado', 'CPU', 'Mouse'],
-        correct: 2,
-        explanation: 'La CPU (Unidad Central de Procesamiento) es el cerebro del computador.'
-      },
-      {
-        question: 'Que es un algoritmo?',
-        options: [
-          'Un tipo de computadora',
-          'Una secuencia de pasos para resolver un problema',
-          'Un lenguaje de programacion',
-          'Un componente de hardware'
-        ],
-        correct: 1,
-        explanation: 'Un algoritmo es una secuencia ordenada de pasos para resolver un problema.'
-      },
-      {
-        question: 'Que funcion tiene un router?',
-        options: [
-          'Almacenar archivos',
-          'Conectar dispositivos a internet',
-          'Imprimir documentos',
-          'Mostrar imagenes'
-        ],
-        correct: 1,
-        explanation: 'Un router conecta dispositivos a internet y dirige el trafico de red.'
-      },
-      {
-        question: 'Cual de estos NO es un lenguaje de programacion?',
-        options: ['Python', 'Java', 'Microsoft', 'JavaScript'],
-        correct: 2,
-        explanation: 'Microsoft es una empresa de tecnologia, no un lenguaje de programacion.'
-      }
+    Español: [
+     {
+  question: '¿Qué es un sustantivo?',
+  options: [
+    'Una palabra que nombra personas, animales o cosas',
+    'Una palabra que indica acción',
+    'Una palabra que describe un verbo',
+    'Una palabra que reemplaza números'
+  ],
+  correct: 0,
+  explanation: 'El sustantivo es la palabra que nombra personas, animales, lugares o cosas.'
+},
+{
+  question: '¿Cuál de estas palabras es un verbo?',
+  options: ['Mesa', 'Correr', 'Rojo', 'Casa'],
+  correct: 1,
+  explanation: '“Correr” es un verbo porque expresa una acción.'
+},
+{
+  question: '¿Qué signo se usa para hacer una pregunta?',
+  options: ['.', '¡!', '¿?', ','],
+  correct: 2,
+  explanation: 'Los signos ¿ ? se usan para indicar preguntas en español.'
+},
+{
+  question: '¿Cuál es el plural de “libro”?',
+  options: ['Libroes', 'Libros', 'Libras', 'Libre'],
+  correct: 1,
+  explanation: 'El plural de “libro” es “libros”.'
+},
+{
+  question: '¿Cuál de estas palabras está escrita correctamente?',
+  options: ['Arvol', 'Escuela', 'Vakas', 'Jirrafa'],
+  correct: 1,
+  explanation: '“Escuela” está escrita correctamente.'
+}
     ]
   },
 
