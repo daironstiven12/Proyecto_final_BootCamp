@@ -110,7 +110,7 @@ const App = {
                 <a href="${p}pages/ciencias.html">Ciencias</a>
                 <a href="${p}pages/ingles.html">Ingles</a>
                 <a href="${p}pages/historia.html">Historia</a>
-                <a href="${p}pages/tecnologia.html">Tecnologia</a>
+                <a href="${p}pages/español.html">Tecnologia</a>
               </div>
             </div>
             <div>
