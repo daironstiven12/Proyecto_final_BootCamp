@@ -56,19 +56,40 @@
           <div class="topic-card">
             <h3>Algebra Basica</h3>
             <p>Aprende los fundamentos del algebra: variables, ecuaciones lineales y expresiones algebraicas.</p>
-            <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
+            <button class="btn btn-sm btn-outline" onclick="window.location.href='informacion.html?subject=matematicas&topic=algebra'">Aprende más</button>
           </div>
           <div class="topic-card">
             <h3>Geometria</h3>
             <p>Figuras geometricas, areas, perimetros y volumenes. Todo explicado con ejemplos visuales.</p>
-            <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
+            <button class="btn btn-sm btn-outline" onclick="window.location.href='informacion.html?subject=matematicas&topic=geometria'">Aprende más</button>
           </div>
           <div class="topic-card">
             <h3>Aritmetica</h3>
             <p>Operaciones basicas, fracciones, decimales y porcentajes. La base de todas las matematicas.</p>
-            <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
+            <button class="btn btn-sm btn-outline" onclick="window.location.href='informacion.html?subject=matematicas&topic=aritmetica'">Aprende más</button>
+          </div>
+          <div class="topic-card">
+            <h3>Potencias y Raices</h3>
+            <p>Exponentes, raiz cuadrada, cuadrados perfectos y notacion cientifica.</p>
+            <button class="btn btn-sm btn-outline" onclick="window.location.href='informacion.html?subject=matematicas&topic=potencias'">Aprende más</button>
+          </div>
+          <div class="topic-card">
+            <h3>Numeros Primos y Secuencias</h3>
+            <p>Numeros primos, la secuencia de Fibonacci y patrones numericos en la naturaleza.</p>
+            <button class="btn btn-sm btn-outline" onclick="window.location.href='informacion.html?subject=matematicas&topic=primos'">Aprende más</button>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="tool-title" style="background:var(--bg-secondary);">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Herramienta</span>
+          <h2 class="section-title" id="tool-title">Tabla de Multiplicar Interactiva</h2>
+          <p class="section-subtitle">Selecciona un numero para ver su tabla de multiplicar. Usa los botones ÷ para practicar division.</p>
+        </div>
+        <div class="reveal" id="math-tool"></div>
       </div>
     </section>
 
@@ -131,10 +152,12 @@
   <script src="../js/animations.js"></script>
   <script src="../js/quiz.js"></script>
   <script src="../js/games.js"></script>
+  <script src="../js/tools.js"></script>
   <script src="../js/main.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       QuizSystem.init('matematicas');
+      SubjectTools.mathTable('math-tool');
     });
   </script>
 </body>

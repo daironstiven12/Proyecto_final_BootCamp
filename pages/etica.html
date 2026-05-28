@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Aprende Ética con AULA DIGITAL - Experimentos virtuales y quizzes.">
+  <meta name="description" content="Aprende Ética con AULA DIGITAL - Principios éticos, dilemas morales y ética digital.">
   <title>Ética - AULA DIGITAL</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,10 @@
   <link rel="stylesheet" href="../css/animations.css">
   <link rel="stylesheet" href="../css/responsive.css">
   <style>
-    :root { --subject-accent: var(--subject-science); --subject-accent-bg: rgba(16, 185, 129, 0.08); }
+    :root { --subject-accent: #fbbf24; --subject-accent-bg: rgba(251, 191, 36, 0.08); }
+    .subject-hero-icon { background: rgba(251, 191, 36, 0.15); }
+    .subject-hero-icon svg { color: #fbbf24; }
+    .step-number { background: #fbbf24; color: #1e293b; }
   </style>
 </head>
 <body>
@@ -34,12 +37,15 @@
       <div class="container">
         <div class="subject-hero-content reveal">
           <div class="subject-hero-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <img src="../assets/images/eticaimagen-removebg-preview.png" alt="dffdgf" srcset="">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+              <path d="M12 6v2"/>
+              <path d="M12 12v4"/>
+              <path d="M12 16h.01"/>
             </svg>
           </div>
           <h1>Ética</h1>
-          <p>La etica es la rama de la filosofía que estudia la conducta humana, lo correcto y lo incorrecto, lo bueno y lo malo, la moral, el buen vivir, la virtud, la felicidad y el deber.</p>
+          <p>La ética es la rama de la filosofía que estudia la conducta humana, lo correcto y lo incorrecto, lo bueno y lo malo, la moral, el buen vivir, la virtud, la felicidad y el deber.</p>
         </div>
       </div>
     </header>
@@ -52,26 +58,42 @@
         </div>
         <div class="topics-grid stagger-children">
           <div class="topic-card">
-            <h3>Metaética</h3>
-            <p>Analiza el origen, el significado y la naturaleza de los conceptos morales. Se pregunta de dónde vienen los juicios morales y si los valores son objetivos o subjetivos.</p>
-            <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
+            <h3>Principios éticos</h3>
+            <p>Explora los valores fundamentales que guían nuestras decisiones: honestidad, respeto, responsabilidad, justicia y solidaridad. Aprende cómo estos principios se aplican en la vida cotidiana y por qué son importantes para la convivencia.</p>
+            <button class="btn btn-sm btn-outline" onclick="window.location.href='informacion.html?subject=etica&topic=principios'">Aprende más</button>
           </div>
           <div class="topic-card">
-            <h3>Ética normativa</h3>
-            <p>Se encarga de establecer los criterios y normas que guían lo que debe ser considerado correcto o incorrecto. Propone teorías generales sobre cómo debemos actuar.</p>
-            <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
+            <h3>Dilemas morales</h3>
+            <p>Analiza situaciones complejas donde no hay una respuesta correcta evidente. Los dilemas morales nos ayudan a desarrollar el pensamiento crítico y a comprender que las decisiones éticas requieren reflexión profunda.</p>
+            <button class="btn btn-sm btn-outline" onclick="window.location.href='informacion.html?subject=etica&topic=dilemas'">Aprende más</button>
           </div>
           <div class="topic-card">
-            <h3>Ética aplicada</h3>
-            <p> Examina cómo se deben aplicar los principios morales y las normativas a situaciones específicas y prácticas de la vida real. Incluye áreas concretas como la ética médica, la ética empresarial o la ética ambiental.</p>
-            <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
+            <h3>Ética digital</h3>
+            <p>Descubre cómo los principios éticos se aplican al mundo digital: privacidad en internet, uso responsable de redes sociales, ciberacoso, derechos de autor y comportamiento respetuoso en línea.</p>
+            <button class="btn btn-sm btn-outline" onclick="window.location.href='informacion.html?subject=etica&topic=digital'">Aprende más</button>
           </div>
-           <div class="topic-card">
-            <h3>Ética descriptiva</h3>
-            <p>  Estudia y describe de manera científica, sociológica o histórica los comportamientos morales reales de las personas y las sociedades, sin juzgar si son correctos o incorrectos.</p>
-            <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
+          <div class="topic-card">
+            <h3>Filosofía ética</h3>
+            <p>Grandes pensadores: Sócrates, Kant, Aristóteles, Sartre. Corrientes como el estoicismo, utilitarismo y existencialismo.</p>
+            <button class="btn btn-sm btn-outline" onclick="window.location.href='informacion.html?subject=etica&topic=filosofia'">Aprende más</button>
+          </div>
+          <div class="topic-card">
+            <h3>Convivencia y Empatía</h3>
+            <p>Escucha activa, comunicación asertiva, resolución de conflictos y el poder de la empatía en las relaciones.</p>
+            <button class="btn btn-sm btn-outline" onclick="window.location.href='informacion.html?subject=etica&topic=convivencia'">Aprende más</button>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="tool-title" style="background:var(--bg-secondary);">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Herramienta</span>
+          <h2 class="section-title" id="tool-title">Rueda de Valores</h2>
+          <p class="section-subtitle">Explora los valores éticos fundamentales. Cada valor es una guía para vivir mejor.</p>
+        </div>
+        <div class="reveal" id="ethics-tool"></div>
       </div>
     </section>
 
@@ -79,35 +101,42 @@
       <div class="container">
         <div class="section-header reveal">
           <span class="section-tag">Paso a paso</span>
-          <h2 class="section-title" id="steps-title">El metodo Ético</h2>
+          <h2 class="section-title" id="steps-title">Método para decidir éticamente</h2>
         </div>
         <div class="steps-container reveal">
           <div class="step-item">
             <div class="step-number" aria-hidden="true">1</div>
             <div class="step-content">
-              <h4>Observacion</h4>
-              <p>Observa un fenomeno natural y formula preguntas sobre el.</p>
+              <h4>Observa la situación</h4>
+              <p>Identifica claramente el problema o la decisión que debes tomar. Reúne todos los hechos relevantes y considera a las personas que podrían verse afectadas.</p>
             </div>
           </div>
           <div class="step-item">
             <div class="step-number" aria-hidden="true">2</div>
             <div class="step-content">
-              <h4>Hipotesis</h4>
-              <p>Propone una explicacion tentativa que puedas probar.</p>
+              <h4>Reflexiona sobre los valores</h4>
+              <p>Pregúntate qué principios éticos están involucrados. Considera valores como la honestidad, el respeto, la responsabilidad y la justicia en relación con la situación.</p>
             </div>
           </div>
           <div class="step-item">
             <div class="step-number" aria-hidden="true">3</div>
             <div class="step-content">
-              <h4>Experimentacion</h4>
-              <p>Disena y realiza experimentos para probar tu hipotesis.</p>
+              <h4>Evalúa las opciones</h4>
+              <p>Identifica al menos dos cursos de acción posibles. Para cada opción, pregúntate: ¿Qué consecuencias tendría? ¿Respeta los derechos de los demás? ¿Es justa?</p>
             </div>
           </div>
           <div class="step-item">
             <div class="step-number" aria-hidden="true">4</div>
             <div class="step-content">
-              <h4>Conclusion</h4>
-              <p>Analiza los resultados y determina si tu hipotesis era correcta.</p>
+              <h4>Toma una decisión</h4>
+              <p>Elige la opción que mejor se alinee con tus principios éticos y que genere el mayor bien para la mayor cantidad de personas afectadas.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-number" aria-hidden="true">5</div>
+            <div class="step-content">
+              <h4>Actúa y reflexiona</h4>
+              <p>Lleva a cabo tu decisión y después reflexiona sobre los resultados. ¿Fue la mejor decisión? ¿Qué aprendiste? La ética es un proceso continuo de aprendizaje.</p>
             </div>
           </div>
         </div>
@@ -133,10 +162,12 @@
   <script src="../js/animations.js"></script>
   <script src="../js/quiz.js"></script>
   <script src="../js/games.js"></script>
+  <script src="../js/tools.js"></script>
   <script src="../js/main.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       QuizSystem.init('Ética');
+      SubjectTools.valuesWheel('ethics-tool');
     });
   </script>
 </body>

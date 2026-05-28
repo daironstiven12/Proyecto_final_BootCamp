@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Aprende Español con Aula Virtual.">
-  <title>Español- AULA DIGITAL</title>
+  <meta name="description" content="Aprende Español con AULA DIGITAL - Gramática, ortografía, lectura y redacción.">
+  <title>Español - AULA DIGITAL</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -13,7 +13,10 @@
   <link rel="stylesheet" href="../css/animations.css">
   <link rel="stylesheet" href="../css/responsive.css">
   <style>
-    :root { --subject-accent: var(--subject-tech); --subject-accent-bg: rgba(6, 182, 212, 0.08); }
+    :root { --subject-accent: #ec4899; --subject-accent-bg: rgba(236, 72, 153, 0.08); }
+    .subject-hero-icon { background: rgba(236, 72, 153, 0.15); }
+    .subject-hero-icon svg { color: #ec4899; }
+    .step-number { background: #ec4899; }
   </style>
 </head>
 <body>
@@ -35,15 +38,13 @@
         <div class="subject-hero-content reveal">
           <div class="subject-hero-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/>
-              <line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/>
-              <line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/>
-              <line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/>
-              <line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/>
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+              <path d="M8 7h8"/><path d="M8 11h6"/><path d="M8 15h4"/>
             </svg>
           </div>
           <h1>Español</h1>
-          <p> El español es la asignatura encargada de enseñar el idioma, la gramática, la ortografía, la lectura y la redacción.</p>
+          <p>La lengua española es una de las más habladas del mundo. Aprende su gramática, ortografía y a expresarte con claridad.</p>
         </div>
       </div>
     </header>
@@ -57,20 +58,41 @@
         <div class="topics-grid stagger-children">
           <div class="topic-card">
             <h3>Gramática</h3>
-            <p>Estructura de las oraciones, uso de verbos, sustantivos y adjetivos.</p>
-            <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
+            <p>Estructura de la lengua: sustantivos, verbos, adjetivos, adverbios y más categorías gramaticales.</p>
+            <button class="btn btn-sm btn-outline" onclick="window.location.href='informacion.html?subject=espanol&topic=gramatica'">Aprende más</button>
           </div>
           <div class="topic-card">
             <h3>Ortografía</h3>
-            <p>Reglas de acentuación y puntuación.</p>
-            <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
+            <p>Reglas de escritura: acentuación, uso de mayúsculas, puntuación y palabras homófonas.</p>
+            <button class="btn btn-sm btn-outline" onclick="window.location.href='informacion.html?subject=espanol&topic=ortografia'">Aprende más</button>
           </div>
           <div class="topic-card">
-            <h3>Compresion lectora</h3>
-            <p>Análisis de textos, identificación de ideas principales y comprensión de mensajes.</p>
-            <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
+            <h3>Lectura y redacción</h3>
+            <p>Comprensión lectora, tipos de textos, estructura narrativa y técnicas de escritura.</p>
+            <button class="btn btn-sm btn-outline" onclick="window.location.href='informacion.html?subject=espanol&topic=lectura'">Aprende más</button>
+          </div>
+          <div class="topic-card">
+            <h3>Figuras Literarias</h3>
+            <p>Metáfora, símil, hipérbole, personificación y otros recursos para embellecer el lenguaje.</p>
+            <button class="btn btn-sm btn-outline" onclick="window.location.href='informacion.html?subject=espanol&topic=figuras'">Aprende más</button>
+          </div>
+          <div class="topic-card">
+            <h3>Vocabulario y Sinónimos</h3>
+            <p>Amplía tu léxico. Sinónimos, antónimos y la rica variedad de palabras del español.</p>
+            <button class="btn btn-sm btn-outline" onclick="window.location.href='informacion.html?subject=espanol&topic=sinonimos'">Aprende más</button>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="tool-title" style="background:var(--bg-secondary);">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Herramienta</span>
+          <h2 class="section-title" id="tool-title">Conjugador de Verbos</h2>
+          <p class="section-subtitle">Selecciona un verbo y explora su conjugación en presente. Verbos regulares e irregulares.</p>
+        </div>
+        <div class="reveal" id="spanish-tool"></div>
       </div>
     </section>
 
@@ -78,35 +100,35 @@
       <div class="container">
         <div class="section-header reveal">
           <span class="section-tag">Paso a paso</span>
-          <h2 class="section-title" id="steps-title">Como saber cuando un texto está bien redactado</h2>
+          <h2 class="section-title" id="steps-title">Cómo escribir correctamente</h2>
         </div>
         <div class="steps-container reveal">
           <div class="step-item">
             <div class="step-number" aria-hidden="true">1</div>
             <div class="step-content">
-              <h4>Definir el problema</h4>
-              <p>Claramente establece que quieres resolver con tu algoritmo.</p>
+              <h4>Planifica tu texto</h4>
+              <p>Define el propósito, el público y las ideas principales que quieres comunicar.</p>
             </div>
           </div>
           <div class="step-item">
             <div class="step-number" aria-hidden="true">2</div>
             <div class="step-content">
-              <h4>Identificar entradas y salidas</h4>
-              <p>Define que datos necesitas y que resultado esperas obtener.</p>
+              <h4>Escribe un borrador</h4>
+              <p>Desarrolla tus ideas sin preocuparte aún por la perfección. Lo importante es plasmar el contenido.</p>
             </div>
           </div>
           <div class="step-item">
             <div class="step-number" aria-hidden="true">3</div>
             <div class="step-content">
-              <h4>Escribir los pasos</h4>
-              <p>Describe la secuencia de pasos para resolver el problema.</p>
+              <h4>Revisa la ortografía</h4>
+              <p>Corrige errores de acentuación, puntuación y gramática. Lee en voz alta para detectar problemas.</p>
             </div>
           </div>
           <div class="step-item">
             <div class="step-number" aria-hidden="true">4</div>
             <div class="step-content">
-              <h4>Probar y refinar</h4>
-              <p>Ejecuta tu algoritmo y mejoralo hasta que funcione correctamente.</p>
+              <h4>Versión final</h4>
+              <p>Una vez corregido, escribe la versión final con buena presentación y claridad.</p>
             </div>
           </div>
         </div>
@@ -117,7 +139,7 @@
       <div class="container">
         <div class="section-header reveal">
           <span class="section-tag">Quiz</span>
-          <h2 class="section-title" id="quiz-title">Pon a prueba tus conocimientos tecnologicos</h2>
+          <h2 class="section-title" id="quiz-title">Pon a prueba tu español</h2>
         </div>
         <div class="reveal">
           <div id="quiz-container" class="quiz-container"></div>
@@ -132,10 +154,12 @@
   <script src="../js/animations.js"></script>
   <script src="../js/quiz.js"></script>
   <script src="../js/games.js"></script>
+  <script src="../js/tools.js"></script>
   <script src="../js/main.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       QuizSystem.init('Español');
+      SubjectTools.verbTrainer('spanish-tool');
     });
   </script>
 </body>

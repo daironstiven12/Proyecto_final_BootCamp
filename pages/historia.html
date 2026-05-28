@@ -54,58 +54,40 @@
           <div class="topic-card">
             <h3>Edad Antigua</h3>
             <p>Las grandes civilizaciones: Egipto, Grecia, Roma. Descubre sus aportes.</p>
-            <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
+            <button class="btn btn-sm btn-outline" onclick="window.location.href='informacion.html?subject=historia&topic=antigua'">Aprende más</button>
           </div>
           <div class="topic-card">
             <h3>Edad Media</h3>
             <p>Feudalismo, cruzadas y el renacimiento cultural. Una epoca de cambios.</p>
-            <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
+            <button class="btn btn-sm btn-outline" onclick="window.location.href='informacion.html?subject=historia&topic=media'">Aprende más</button>
           </div>
           <div class="topic-card">
             <h3>Edad Moderna</h3>
             <p>Descubrimientos, revoluciones, guerras mundiales y la era digital.</p>
-            <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
+            <button class="btn btn-sm btn-outline" onclick="window.location.href='informacion.html?subject=historia&topic=moderna'">Aprende más</button>
+          </div>
+          <div class="topic-card">
+            <h3>Civilizaciones Americanas</h3>
+            <p>Incas, Mayas, Aztecas y Olmecas. El esplendor precolombino en America.</p>
+            <button class="btn btn-sm btn-outline" onclick="window.location.href='informacion.html?subject=historia&topic=americanas'">Aprende más</button>
+          </div>
+          <div class="topic-card">
+            <h3>Siglo XX</h3>
+            <p>Guerras mundiales, Guerra Fria, llegada a la Luna y revolucion digital.</p>
+            <button class="btn btn-sm btn-outline" onclick="window.location.href='informacion.html?subject=historia&topic=siglo20'">Aprende más</button>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="timeline-title">
+    <section class="section" aria-labelledby="tool-title" style="background:var(--bg-secondary);">
       <div class="container">
         <div class="section-header reveal">
-          <span class="section-tag">Linea del tiempo</span>
-          <h2 class="section-title" id="timeline-title">Eventos historicos importantes</h2>
+          <span class="section-tag">Herramienta</span>
+          <h2 class="section-title" id="tool-title">Linea del Tiempo Interactiva</h2>
+          <p class="section-subtitle">Explora los eventos mas importantes de la historia. Selecciona una fecha para aprender mas.</p>
         </div>
-        <div class="steps-container reveal">
-          <div class="step-item">
-            <div class="step-number" aria-hidden="true">3500 a.C.</div>
-            <div class="step-content">
-              <h4>Invencion de la escritura</h4>
-              <p>Los sumerios inventaron la escritura cuneiforme en Mesopotamia.</p>
-            </div>
-          </div>
-          <div class="step-item">
-            <div class="step-number" aria-hidden="true">753 a.C.</div>
-            <div class="step-content">
-              <h4>Fundacion de Roma</h4>
-              <p>Segun la leyenda, Romulo fundo la ciudad de Roma.</p>
-            </div>
-          </div>
-          <div class="step-item">
-            <div class="step-number" aria-hidden="true">1492</div>
-            <div class="step-content">
-              <h4>Descubrimiento de America</h4>
-              <p>Cristobal Colon llego a America el 12 de octubre de 1492.</p>
-            </div>
-          </div>
-          <div class="step-item">
-            <div class="step-number" aria-hidden="true">1789</div>
-            <div class="step-content">
-              <h4>Revolucion Francesa</h4>
-              <p>El pueblo de Francia se levanto proclamando libertad, igualdad y fraternidad.</p>
-            </div>
-          </div>
-        </div>
+        <div class="reveal" id="history-tool"></div>
       </div>
     </section>
 
@@ -128,10 +110,12 @@
   <script src="../js/animations.js"></script>
   <script src="../js/quiz.js"></script>
   <script src="../js/games.js"></script>
+  <script src="../js/tools.js"></script>
   <script src="../js/main.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       QuizSystem.init('historia');
+      SubjectTools.historyTimeline('history-tool');
     });
   </script>
 </body>

@@ -54,19 +54,40 @@
           <div class="topic-card">
             <h3>Biologia</h3>
             <p>Estudio de los seres vivos: celulas, tejidos, organos y ecosistemas.</p>
-            <button class="btn btn-sm btn-outline"><a href="../pages/informacionC.html">Aprende más</a></button>
+            <button class="btn btn-sm btn-outline" onclick="window.location.href='informacion.html?subject=ciencias&topic=biologia'">Aprende más</button>
           </div>
           <div class="topic-card">
             <h3>Quimica</h3>
             <p>Elementos, compuestos, reacciones quimicas y la tabla periodica.</p>
-            <button class="btn btn-sm btn-outline"><a href="">Aprende más</button>
+            <button class="btn btn-sm btn-outline" onclick="window.location.href='informacion.html?subject=ciencias&topic=quimica'">Aprende más</button>
           </div>
           <div class="topic-card">
             <h3>Fisica</h3>
             <p>Movimiento, fuerzas, energia, luz y sonido. Las leyes del universo.</p>
-            <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Aprende más</button>
+            <button class="btn btn-sm btn-outline" onclick="window.location.href='informacion.html?subject=ciencias&topic=fisica'">Aprende más</button>
+          </div>
+          <div class="topic-card">
+            <h3>Astronomia</h3>
+            <p>Planetas, estrellas, galaxias y el sistema solar. El universo mas alla de la Tierra.</p>
+            <button class="btn btn-sm btn-outline" onclick="window.location.href='informacion.html?subject=ciencias&topic=astronomia'">Aprende más</button>
+          </div>
+          <div class="topic-card">
+            <h3>Cuerpo Humano</h3>
+            <p>Sistemas del cuerpo: nervioso, circulatorio, oseo y mas. La maquina perfecta.</p>
+            <button class="btn btn-sm btn-outline" onclick="window.location.href='informacion.html?subject=ciencias&topic=cuerpo'">Aprende más</button>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="tool-title" style="background:var(--bg-secondary);">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Herramienta</span>
+          <h2 class="section-title" id="tool-title">Explorador de Elementos</h2>
+          <p class="section-subtitle">Selecciona un elemento quimico para conocer sus propiedades y datos curiosos.</p>
+        </div>
+        <div class="reveal" id="science-tool"></div>
       </div>
     </section>
 
@@ -128,10 +149,12 @@
   <script src="../js/animations.js"></script>
   <script src="../js/quiz.js"></script>
   <script src="../js/games.js"></script>
+  <script src="../js/tools.js"></script>
   <script src="../js/main.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       QuizSystem.init('ciencias');
+      SubjectTools.elementExplorer('science-tool');
     });
   </script>
 </body>

@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Información detallada de materias - AULA DIGITAL">
+  <title>Información - AULA DIGITAL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/loader.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <style>
+    :root { --subject-accent: #6366f1; --subject-accent-bg: rgba(99, 102, 241, 0.08); }
+    .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+    .info-illustration { display: flex; justify-content: center; align-items: center; padding: 32px; }
+    .info-illustration svg { width: 100%; max-width: 400px; height: auto; }
+    .info-content h3 { font-size: var(--text-xl); font-weight: 700; margin-bottom: 12px; color: var(--text-primary); }
+    .info-content p { font-size: var(--text-base); color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; }
+    .info-content ul { list-style: disc; padding-left: 24px; margin-bottom: 16px; }
+    .info-content ul li { font-size: var(--text-base); color: var(--text-secondary); line-height: 1.8; margin-bottom: 4px; }
+    .info-highlight { background: var(--card-accent-bg, var(--bg-tertiary)); border-radius: 16px; padding: 24px; margin: 24px 0; border-left: 4px solid var(--subject-accent); }
+    .info-highlight h4 { font-size: var(--text-base); font-weight: 700; margin-bottom: 8px; color: var(--text-primary); }
+    .info-highlight p { font-size: var(--text-sm); margin-bottom: 0; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 24px; color: var(--text-secondary); font-size: var(--text-sm); font-weight: 500; transition: color var(--transition-fast); }
+    .back-link:hover { color: var(--accent-primary); }
+    .back-link svg { width: 16px; height: 16px; }
+
+    @media (max-width: 767px) {
+      .info-grid { grid-template-columns: 1fr; }
+      .info-illustration { order: -1; padding: 16px; }
+      .info-illustration svg { max-width: 250px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-gradient-animation" aria-hidden="true"></div>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+  <div id="navbar-placeholder"></div>
+
+  <main id="main-content">
+    <div class="container" style="padding-top: calc(var(--navbar-height) + 32px);">
+      <a href="javascript:history.back()" class="back-link reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+        Volver a la materia
+      </a>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <div id="info-content" class="reveal">
+          <div class="section-header">
+            <span class="section-tag" id="info-subject-tag">Matemáticas</span>
+            <h2 class="section-title" id="info-title">Tema de la materia</h2>
+          </div>
+          <div class="info-grid stagger-children">
+            <div class="info-illustration" id="info-illustration"></div>
+            <div class="info-content" id="info-body"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="../js/loader.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/quiz.js"></script>
+  <script src="../js/games.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    const subjectsData = {
+      matematicas: {
+        color: '#6366f1',
+        tag: 'Matemáticas',
+        topics: {
+          algebra: {
+            title: 'Álgebra Básica',
+            body: `
+              <h3>¿Qué es el Álgebra?</h3>
+              <p>El álgebra es una rama de las matemáticas que utiliza letras y símbolos para representar números y cantidades en ecuaciones y expresiones. Es como un lenguaje secreto donde las letras tienen valores ocultos que debemos descubrir.</p>
+              <div class="info-highlight">
+                <h4>💡 Dato curioso</h4>
+                <p>La palabra "álgebra" viene del árabe "al-jabr" que significa "reunión" o "restauración". Fue introducida por el matemático persa Al-Juarismi en el siglo IX.</p>
+              </div>
+              <h3>Conceptos clave</h3>
+              <ul>
+                <li><strong>Variable:</strong> Una letra (como x, y, z) que representa un número desconocido.</li>
+                <li><strong>Expresión algebraica:</strong> Combinación de números, letras y operaciones. Ej: 2x + 3</li>
+                <li><strong>Ecuación:</strong> Dos expresiones separadas por un signo igual. Ej: 2x + 3 = 7</li>
+                <li><strong>Término:</strong> Cada parte de una expresión separada por + o -</li>
+              </ul>
+              <p>Resolver una ecuación significa encontrar el valor de la variable que hace que la igualdad sea cierta. Es como resolver un acertijo matemático paso a paso.</p>
+            `,
+            illustration: 'math'
+          },
+          geometria: {
+            title: 'Geometría',
+            body: `
+              <h3>El mundo de las formas</h3>
+              <p>La geometría estudia las formas, tamaños, posiciones y dimensiones de las figuras en el espacio. Desde un simple triángulo hasta complejas estructuras tridimensionales, la geometría está en todas partes.</p>
+              <div class="info-highlight">
+                <h4>🔷 ¿Sabías que...?</h4>
+                <p>Los panales de abejas usan hexágonos porque es la forma más eficiente para almacenar miel usando la menor cantidad de cera posible.</p>
+              </div>
+              <h3>Figuras fundamentales</h3>
+              <ul>
+                <li><strong>Triángulo:</strong> 3 lados. Su área se calcula como base × altura ÷ 2</li>
+                <li><strong>Rectángulo:</strong> 4 lados paralelos. Área = base × altura</li>
+                <li><strong>Círculo:</strong> Área = π × r². Perímetro = 2 × π × r</li>
+                <li><strong>Cuadrado:</strong> 4 lados iguales. Área = lado²</li>
+              </ul>
+              <p>En la vida cotidiana, usamos geometría para calcular distancias, diseñar edificios, crear arte y hasta para organizar muebles en una habitación.</p>
+            `,
+            illustration: 'geometry'
+          },
+          aritmetica: {
+            title: 'Aritmética',
+            body: `
+              <h3>La base de todo</h3>
+              <p>La aritmética es la rama más antigua y fundamental de las matemáticas. Se ocupa de los números y las operaciones básicas: suma, resta, multiplicación y división.</p>
+              <div class="info-highlight">
+                <h4>📐 El poder de los números</h4>
+                <p>Los antiguos egipcios usaban jeroglíficos para representar números. Nuestro sistema decimal actual (0-9) fue inventado en la India y llevado a Europa por los árabes.</p>
+              </div>
+              <h3>Operaciones fundamentales</h3>
+              <ul>
+                <li><strong>Suma (+):</strong> Unir cantidades. 5 + 3 = 8</li>
+                <li><strong>Resta (-):</strong> Quitar cantidades. 9 - 4 = 5</li>
+                <li><strong>Multiplicación (×):</strong> Suma repetida. 4 × 3 = 12</li>
+                <li><strong>División (÷):</strong> Repartir. 15 ÷ 3 = 5</li>
+                <li><strong>Fracciones:</strong> Partes de un todo. 1/2 = 0.5</li>
+                <li><strong>Porcentajes (%):</strong> Partes por cada 100. 25% = 1/4</li>
+              </ul>
+            `,
+            illustration: 'math'
+          },
+          potencias: {
+            title: 'Potencias y Raíces',
+            body: `
+              <h3>El poder de los exponentes</h3>
+              <p>Una potencia representa la multiplicación de un número por sí mismo varias veces. La raíz cuadrada es la operación inversa: encontrar qué número multiplicado por sí mismo da el valor original.</p>
+              <div class="info-highlight">
+                <h4>🔢 ¿Sabías que...?</h4>
+                <p>El símbolo de raíz cuadrada (√) fue introducido por el matemático alemán Christoph Rudolff en 1525. Antes se escribía "radix" (raíz en latín).</p>
+              </div>
+              <h3>Conceptos clave</h3>
+              <ul>
+                <li><strong>Potencia:</strong> 5² = 5 × 5 = 25. El número pequeño (exponente) indica cuántas veces se multiplica.</li>
+                <li><strong>Raíz cuadrada:</strong> √144 = 12 porque 12 × 12 = 144</li>
+                <li><strong>Cuadrado perfecto:</strong> Números como 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144</li>
+                <li><strong>Notación científica:</strong> 300,000 = 3 × 10⁵, usada para números muy grandes o muy pequeños</li>
+              </ul>
+              <p>Las potencias están en todas partes: en el área de un cuadrado (lado²), en el volumen de un cubo (lado³), y hasta en la famosa ecuación de Einstein E = mc².</p>
+            `,
+            illustration: 'math'
+          },
+          primos: {
+            title: 'Números Primos y Secuencias',
+            body: `
+              <h3>Los átomos de las matemáticas</h3>
+              <p>Los números primos son aquellos que solo son divisibles entre 1 y sí mismos. Son como los "átomos" de las matemáticas porque cualquier número puede descomponerse en factores primos.</p>
+              <div class="info-highlight">
+                <h4>🔐 Dato fascinante</h4>
+                <p>Los números primos son la base de la criptografía moderna. Cuando compras en línea, tu tarjeta está protegida por números primos de cientos de dígitos.</p>
+              </div>
+              <h3>Secuencias numéricas famosas</h3>
+              <ul>
+                <li><strong>Números primos:</strong> 2, 3, 5, 7, 11, 13, 17, 19, 23... el único primo par es el 2</li>
+                <li><strong>Fibonacci:</strong> 0, 1, 1, 2, 3, 5, 8, 13, 21... cada número es la suma de los dos anteriores</li>
+                <li><strong>Números pares:</strong> 2, 4, 6, 8, 10... divisibles entre 2</li>
+                <li><strong>Números impares:</strong> 1, 3, 5, 7, 9... no divisibles entre 2</li>
+              </ul>
+              <p>La secuencia de Fibonacci aparece sorprendentemente en la naturaleza: en la disposición de las hojas, los pétalos de las flores, las piñas y los caracoles.</p>
+            `,
+            illustration: 'math'
+          }
+        }
+      },
+      ciencias: {
+        color: '#10b981',
+        tag: 'Ciencias Naturales',
+        topics: {
+          biologia: {
+            title: 'Biología',
+            body: `
+              <h3>El estudio de la vida</h3>
+              <p>La biología es la ciencia que estudia los seres vivos: su origen, evolución, estructura, función y relaciones con el entorno. Desde las bacterias microscópicas hasta las ballenas gigantes, la vida es extraordinaria.</p>
+              <div class="info-highlight">
+                <h4>🧬 ¿Sabías que...?</h4>
+                <p>El cuerpo humano tiene aproximadamente 37.2 billones de células. Cada día, mueren y se reemplazan unos 330 mil millones de células.</p>
+              </div>
+              <h3>Niveles de organización</h3>
+              <ul>
+                <li><strong>Célula:</strong> Unidad básica de la vida</li>
+                <li><strong>Tejido:</strong> Conjunto de células similares</li>
+                <li><strong>Órgano:</strong> Estructura formada por tejidos</li>
+                <li><strong>Sistema:</strong> Grupo de órganos que trabajan juntos</li>
+                <li><strong>Organismo:</strong> Ser vivo completo</li>
+                <li><strong>Ecosistema:</strong> Comunidad de organismos + su ambiente</li>
+              </ul>
+            `,
+            illustration: 'biology'
+          },
+          quimica: {
+            title: 'Química',
+            body: `
+              <h3>La ciencia de la materia</h3>
+              <p>La química estudia la composición, estructura y propiedades de la materia, así como los cambios que experimenta durante las reacciones químicas. ¡Todo lo que nos rodea está hecho de productos químicos!</p>
+              <div class="info-highlight">
+                <h4>⚗️ ¡Increíble!</h4>
+                <p>El agua (H₂O) es la única sustancia en la Tierra que existe naturalmente en tres estados: sólido (hielo), líquido (agua) y gaseoso (vapor).</p>
+              </div>
+              <h3>Conceptos esenciales</h3>
+              <ul>
+                <li><strong>Átomo:</strong> La unidad más pequeña de un elemento</li>
+                <li><strong>Elemento:</strong> Sustancia pura como oxígeno (O), carbono (C)</li>
+                <li><strong>Molécula:</strong> Dos o más átomos unidos</li>
+                <li><strong>Compuesto:</strong> Sustancia hecha de diferentes elementos</li>
+                <li><strong>Tabla periódica:</strong> Organización de todos los elementos</li>
+              </ul>
+            `,
+            illustration: 'chemistry'
+          },
+          fisica: {
+            title: 'Física',
+            body: `
+              <h3>Las leyes del universo</h3>
+              <p>La física busca entender cómo funciona el universo, desde las partículas subatómicas hasta las galaxias. Estudia la materia, la energía, el espacio y el tiempo.</p>
+              <div class="info-highlight">
+                <h4>🚀 Dato fascinante</h4>
+                <p>La velocidad de la luz es de aproximadamente 300,000 km/s. ¡La luz del Sol tarda solo 8 minutos en llegar a la Tierra!</p>
+              </div>
+              <h3>Áreas principales</h3>
+              <ul>
+                <li><strong>Mecánica:</strong> Estudio del movimiento y las fuerzas</li>
+                <li><strong>Termodinámica:</strong> Calor y temperatura</li>
+                <li><strong>Óptica:</strong> Luz y visión</li>
+                <li><strong>Electricidad:</strong> Cargas eléctricas y corriente</li>
+                <li><strong>Acústica:</strong> Sonido y ondas</li>
+              </ul>
+            `,
+            illustration: 'physics'
+          },
+          astronomia: {
+            title: 'Astronomía',
+            body: `
+              <h3>El universo más allá de la Tierra</h3>
+              <p>La astronomía estudia los cuerpos celestes: planetas, estrellas, galaxias y el universo en su conjunto. Es una de las ciencias más antiguas, practicada desde las primeras civilizaciones.</p>
+              <div class="info-highlight">
+                <h4>🌍 ¿Sabías que...?</h4>
+                <p>Mercurio es el planeta más pequeño del sistema solar y el más cercano al Sol. Un año en Mercurio dura solo 88 días terrestres, pero un día allí dura 59 días terrestres.</p>
+              </div>
+              <h3>El sistema solar</h3>
+              <ul>
+                <li><strong>Mercurio:</strong> El más pequeño y cercano al Sol. Sin atmósfera, temperaturas extremas.</li>
+                <li><strong>Venus:</strong> Similar en tamaño a la Tierra, pero con efecto invernadero descontrolado.</li>
+                <li><strong>Tierra:</strong> Único planeta conocido con vida. 70% cubierto de agua.</li>
+                <li><strong>Marte:</strong> El "planeta rojo". Tiene el volcán más grande del sistema solar (Monte Olimpo).</li>
+                <li><strong>Júpiter:</strong> El más grande. Su Gran Mancha Roja es una tormenta más grande que la Tierra.</li>
+                <li><strong>Saturno:</strong> Famoso por sus anillos de hielo y roca.</li>
+              </ul>
+            `,
+            illustration: 'physics'
+          },
+          cuerpo: {
+            title: 'Cuerpo Humano',
+            body: `
+              <h3>La máquina perfecta</h3>
+              <p>El cuerpo humano es un sistema increíblemente complejo. Aproximadamente 37.2 billones de células trabajan juntas para mantenernos vivos. Cada sistema tiene una función específica y vital.</p>
+              <div class="info-highlight">
+                <h4>🦴 Dato curioso</h4>
+                <p>El fémur es el hueso más largo del cuerpo humano, mide aproximadamente el 25% de tu altura. El corazón late 100,000 veces al día y la piel se regenera completamente cada 28 días.</p>
+              </div>
+              <h3>Sistemas del cuerpo</h3>
+              <ul>
+                <li><strong>Sistema nervioso:</strong> Cerebro, médula espinal, neuronas. Transmite señales a 120 m/s.</li>
+                <li><strong>Sistema circulatorio:</strong> Corazón, sangre, vasos sanguíneos. Bombea 7,500 litros de sangre al día.</li>
+                <li><strong>Sistema esquelético:</strong> 206 huesos. El fémur es el más largo, el estribo (oído) el más pequeño.</li>
+                <li><strong>Sistema respiratorio:</strong> Pulmones, tráquea. Intercambio de oxígeno y dióxido de carbono.</li>
+                <li><strong>La piel:</strong> El órgano más grande: 2m² y 3.5-4.5 kg. Nos protege de infecciones.</li>
+              </ul>
+            `,
+            illustration: 'biology'
+          }
+        }
+      },
+      ingles: {
+        color: '#f59e0b',
+        tag: 'Inglés',
+        topics: {
+          vocabulary: {
+            title: 'Vocabulary',
+            body: `
+              <h3>Build Your Word Power</h3>
+              <p>Vocabulary is the foundation of any language. The more words you know, the better you can express yourself and understand others. English has over 170,000 words in current use!</p>
+              <div class="info-highlight">
+                <h4>💡 Fun Fact</h4>
+                <p>The longest English word without repeating a letter is "uncopyrightable" (15 letters). The most common word in English is "the".</p>
+              </div>
+              <h3>Tips to Learn Vocabulary</h3>
+              <ul>
+                <li><strong>Read regularly:</strong> Books, articles, news in English</li>
+                <li><strong>Use flashcards:</strong> Write the word on one side, meaning on the other</li>
+                <li><strong>Practice daily:</strong> Learn 5-10 new words each day</li>
+                <li><strong>Context matters:</strong> Learn words in sentences, not in isolation</li>
+                <li><strong>Speak!</strong> Use new words in conversations</li>
+              </ul>
+            `,
+            illustration: 'english'
+          },
+          grammar: {
+            title: 'Grammar',
+            body: `
+              <h3>Master English Grammar</h3>
+              <p>Grammar is the set of rules that structure a language. In English, grammar helps us form correct sentences, express time (past, present, future), and communicate clearly.</p>
+              <div class="info-highlight">
+                <h4>📚 Quick Tip</h4>
+                <p>The most common sentence structure in English is Subject + Verb + Object. Example: "She (subject) reads (verb) books (object)."</p>
+              </div>
+              <h3>Key Grammar Topics</h3>
+              <ul>
+                <li><strong>Tenses:</strong> Present, Past, Future - simple and continuous forms</li>
+                <li><strong>Prepositions:</strong> in, on, at, for, since, during</li>
+                <li><strong>Articles:</strong> a, an, the - when and how to use them</li>
+                <li><strong>Modals:</strong> can, should, must, might, would</li>
+                <li><strong>Conditionals:</strong> If sentences (Type 0, 1, 2, 3)</li>
+              </ul>
+            `,
+            illustration: 'english'
+          },
+          conversation: {
+            title: 'Conversation',
+            body: `
+              <h3>Speak with Confidence</h3>
+              <p>Conversation is the ultimate goal of learning English. Being able to communicate fluently opens doors to friendships, travel, education, and career opportunities worldwide.</p>
+              <div class="info-highlight">
+                <h4>🗣️ Did You Know?</h4>
+                <p>English is spoken by over 1.5 billion people worldwide. It's the official language of 67 countries and the most common second language in the world.</p>
+              </div>
+              <h3>Useful Conversation Phrases</h3>
+              <ul>
+                <li><strong>Greetings:</strong> "Hello, how are you?", "Nice to meet you!"</li>
+                <li><strong>Asking for help:</strong> "Could you help me, please?"</li>
+                <li><strong>Opinions:</strong> "In my opinion...", "I think that..."</li>
+                <li><strong>Agreeing:</strong> "You're right!", "I agree with you"</li>
+                <li><strong>Clarifying:</strong> "Could you repeat that?", "What does that mean?"</li>
+              </ul>
+            `,
+            illustration: 'english'
+          },
+          time: {
+            title: 'Telling Time & Numbers',
+            body: `
+              <h3>Time is Money</h3>
+              <p>Telling time and using numbers correctly is essential in English. From asking "What time is it?" to understanding dates, prices, and quantities, numbers are everywhere.</p>
+              <div class="info-highlight">
+                <h4>⏰ Fun Fact</h4>
+                <p>The 12-hour clock system has been used since ancient Egypt. AM means "Ante Meridiem" (before noon) and PM means "Post Meridiem" (after noon) in Latin.</p>
+              </div>
+              <h3>How to tell time</h3>
+              <ul>
+                <li><strong>12:00 PM:</strong> Noon / Midday</li>
+                <li><strong>12:00 AM:</strong> Midnight</li>
+                <li><strong>1:15:</strong> Quarter past one / One fifteen</li>
+                <li><strong>1:30:</strong> Half past one / One thirty</li>
+                <li><strong>1:45:</strong> Quarter to two / One forty-five</li>
+                <li><strong>Ordinal numbers:</strong> First (1st), Second (2nd), Third (3rd), Fourth (4th)...</li>
+              </ul>
+            `,
+            illustration: 'english'
+          },
+          irregulars: {
+            title: 'Past Tense & Irregular Verbs',
+            body: `
+              <h3>Yesterday, Today, Tomorrow</h3>
+              <p>English past tense can be regular (-ed) or irregular. Irregular verbs don't follow rules and must be memorized. They are among the most common verbs in English.</p>
+              <div class="info-highlight">
+                <h4>📚 Did You Know?</h4>
+                <p>English has about 200 irregular verbs. The most common ones like "go/went", "eat/ate", "see/saw" come from Old English conjugations over 1000 years old.</p>
+              </div>
+              <h3>Common Irregular Verbs</h3>
+              <ul>
+                <li><strong>Go → Went:</strong> "I go to school" (present), "I went to school" (past)</li>
+                <li><strong>Eat → Ate:</strong> "I eat pizza" → "I ate pizza yesterday"</li>
+                <li><strong>See → Saw:</strong> "I see a bird" → "I saw a bird this morning"</li>
+                <li><strong>Buy → Bought:</strong> "I buy a book" → "I bought a book last week"</li>
+                <li><strong>Think → Thought:</strong> "I think so" → "I thought so"</li>
+                <li><strong>Regular -ed:</strong> Walk → Walked, Play → Played, Talk → Talked</li>
+              </ul>
+            `,
+            illustration: 'english'
+          }
+        }
+      },
+      historia: {
+        color: '#ef4444',
+        tag: 'Historia',
+        topics: {
+          antigua: {
+            title: 'Edad Antigua',
+            body: `
+              <h3>El amanecer de la civilización</h3>
+              <p>La Edad Antigua comenzó con la invención de la escritura (alrededor del 3500 a.C.) y terminó con la caída del Imperio Romano de Occidente (476 d.C.). Fue una época de grandes imperios, descubrimientos y avances culturales.</p>
+              <div class="info-highlight">
+                <h4>🏛️ ¿Lo sabías?</h4>
+                <p>El Imperio Romano llegó a controlar más de 5 millones de kilómetros cuadrados, desde Britania hasta el norte de África y desde la Península Ibérica hasta Mesopotamia.</p>
+              </div>
+              <h3>Grandes civilizaciones</h3>
+              <ul>
+                <li><strong>Egipto:</strong> Pirámides, faraones, jeroglíficos y avances en medicina</li>
+                <li><strong>Grecia:</strong> Cuna de la democracia, filosofía, arte y deportes</li>
+                <li><strong>Roma:</strong> Derecho, ingeniería, latín y organización política</li>
+                <li><strong>Mesopotamia:</strong> Primera escritura, rueda y código de leyes</li>
+              </ul>
+            `,
+            illustration: 'history'
+          },
+          media: {
+            title: 'Edad Media',
+            body: `
+              <h3>Mil años de transformación</h3>
+              <p>La Edad Media (476 d.C. - 1492) fue un período de profundos cambios: el feudalismo, las cruzadas, el surgimiento del Islam, las universidades y el preludio del Renacimiento.</p>
+              <div class="info-highlight">
+                <h4>⚔️ Dato curioso</h4>
+                <p>Los castillos medievales no solo eran fortalezas militares, sino también centros administrativos, residencias y símbolos de poder. Algunos tardaban décadas en construirse.</p>
+              </div>
+              <h3>Características principales</h3>
+              <ul>
+                <li><strong>Feudalismo:</strong> Sistema de jerarquías y tierras</li>
+                <li><strong>Caballeros:</strong> Guerreros con código de honor</li>
+                <li><strong>Arte gótico:</strong> Catedrales con vitrales y arcos apuntados</li>
+                <li><strong>Universidades:</strong> Nacen en Bologna, París y Oxford</li>
+                <li><strong>Peste Negra:</strong> 1347-1351, cambió la demografía europea</li>
+              </ul>
+            `,
+            illustration: 'history'
+          },
+          moderna: {
+            title: 'Edad Moderna',
+            body: `
+              <h3>Revoluciones y descubrimientos</h3>
+              <p>La Edad Moderna (1492-1789) trajo consigo el descubrimiento de América, el Renacimiento, la Reforma Protestante, la Revolución Científica y el inicio de la globalización.</p>
+              <div class="info-highlight">
+                <h4>🌍 Impacto global</h4>
+                <p>El descubrimiento de América en 1492 conectó por primera vez los hemisferios oriental y occidental, cambiando para siempre la historia de la humanidad.</p>
+              </div>
+              <h3>Eventos transformadores</h3>
+              <ul>
+                <li><strong>1492:</strong> Cristóbal Colón llega a América</li>
+                <li><strong>1517:</strong> Lutero inicia la Reforma Protestante</li>
+                <li><strong>1543:</strong> Copérnico publica la teoría heliocéntrica</li>
+                <li><strong>1687:</strong> Newton publica la ley de gravitación universal</li>
+                <li><strong>1776:</strong> Independencia de Estados Unidos</li>
+              </ul>
+            `,
+            illustration: 'history'
+          },
+          americanas: {
+            title: 'Civilizaciones Americanas',
+            body: `
+              <h3>El esplendor precolombino</h3>
+              <p>Antes de la llegada de los europeos, América estaba habitada por grandes civilizaciones con impresionantes avances en arquitectura, astronomía, matemáticas y organización social.</p>
+              <div class="info-highlight">
+                <h4>🏛️ ¿Lo sabías?</h4>
+                <p>Machu Picchu, la ciudad inca en los Andes peruanos, fue construida alrededor de 1450 sin usar argamasa (cemento). Las piedras encajan perfectamente gracias a un tallado milimétrico.</p>
+              </div>
+              <h3>Grandes imperios</h3>
+              <ul>
+                <li><strong>Incas (Perú):</strong> Imperio más grande de América precolombina. Construyeron Machu Picchu, redes de caminos y un sistema de contabilidad con quipus (cuerdas anudadas).</li>
+                <li><strong>Mayas (Mesoamérica):</strong> Desarrollaron un calendario preciso, el concepto del cero en matemáticas y una escritura jeroglífica completa.</li>
+                <li><strong>Aztecas (México):</strong> Construyeron Tenochtitlán (hoy Ciudad de México), una de las ciudades más grandes del mundo en su época.</li>
+                <li><strong>Olmecas:</strong> La "cultura madre" de Mesoamérica, famosa por sus enormes cabezas de piedra.</li>
+              </ul>
+            `,
+            illustration: 'history'
+          },
+          siglo20: {
+            title: 'Siglo XX',
+            body: `
+              <h3>El siglo de los cambios</h3>
+              <p>El siglo XX fue testigo de guerras mundiales, avances tecnológicos revolucionarios, la Guerra Fría y la globalización. Fue la época de cambios más rápida en la historia de la humanidad.</p>
+              <div class="info-highlight">
+                <h4>🧊 Momento clave</h4>
+                <p>El Muro de Berlín, construido en 1961 para dividir Alemania, cayó el 9 de noviembre de 1989. Su caída simbolizó el fin de la Guerra Fría y la reunificación de Europa.</p>
+              </div>
+              <h3>Acontecimientos clave</h3>
+              <ul>
+                <li><strong>1914-1918:</strong> Primera Guerra Mundial. 20 millones de muertos.</li>
+                <li><strong>1939-1945:</strong> Segunda Guerra Mundial. 70 millones de muertos. Invención de la bomba atómica.</li>
+                <li><strong>1947-1991:</strong> Guerra Fría: EEUU vs URSS. Carrera espacial y armamentista.</li>
+                <li><strong>1969:</strong> El hombre llega a la Luna por primera vez.</li>
+                <li><strong>1989:</strong> Caída del Muro de Berlín. Fin de la Guerra Fría.</li>
+                <li><strong>1990s:</strong> Nacimiento de Internet. Revolución digital.</li>
+              </ul>
+            `,
+            illustration: 'history'
+          }
+        }
+      },
+      etica: {
+        color: '#fbbf24',
+        tag: 'Ética',
+        topics: {
+          principios: {
+            title: 'Principios Éticos',
+            body: `
+              <h3>Los valores que nos guían</h3>
+              <p>Los principios éticos son valores fundamentales que nos ayudan a distinguir entre lo correcto y lo incorrecto. Son la brújula moral que guía nuestras decisiones y acciones en la vida cotidiana.</p>
+              <div class="info-highlight">
+                <h4>🌟 Reflexión</h4>
+                <p>La regla de oro de la ética está presente en casi todas las culturas: "Trata a los demás como te gustaría que te trataran a ti".</p>
+              </div>
+              <h3>Principios fundamentales</h3>
+              <ul>
+                <li><strong>Honestidad:</strong> Decir la verdad y actuar con sinceridad</li>
+                <li><strong>Respeto:</strong> Valorar a los demás y sus derechos</li>
+                <li><strong>Responsabilidad:</strong> Cumplir con nuestros deberes y obligaciones</li>
+                <li><strong>Justicia:</strong> Dar a cada quien lo que le corresponde</li>
+                <li><strong>Solidaridad:</strong> Ayudar a quienes lo necesitan</li>
+              </ul>
+            `,
+            illustration: 'ethics'
+          },
+          dilemas: {
+            title: 'Dilemas Morales',
+            body: `
+              <h3>Decisiones difíciles</h3>
+              <p>Un dilema moral es una situación donde debemos elegir entre dos opciones, y ambas tienen consecuencias éticas complejas. No hay una respuesta fácil, pero analizarlas nos ayuda a desarrollar nuestro pensamiento crítico.</p>
+              <div class="info-highlight">
+                <h4>🤔 Piensa en esto</h4>
+                <p>El famoso "Dilema del tranvía": ¿desviarías un tranvía para salvar a cinco personas aunque eso signifique que una persona muera? No hay respuesta correcta, pero la reflexión es valiosa.</p>
+              </div>
+              <h3>Cómo analizar un dilema</h3>
+              <ul>
+                <li>Identifica a todas las personas afectadas</li>
+                <li>Considera las consecuencias de cada opción</li>
+                <li>Pregúntate qué valores están en juego</li>
+                <li>Imagina cómo te sentirías después de decidir</li>
+                <li>Busca el consejo de personas de confianza</li>
+              </ul>
+            `,
+            illustration: 'ethics'
+          },
+          digital: {
+            title: 'Ética Digital',
+            body: `
+              <h3>Tu huella en el mundo digital</h3>
+              <p>La ética digital aplica los principios morales al entorno en línea: cómo nos comportamos en redes sociales, cómo protegemos nuestra privacidad y cómo respetamos a los demás en internet.</p>
+              <div class="info-highlight">
+                <h4>📱 Recuerda siempre</h4>
+                <p>Todo lo que publicas en internet deja una huella digital permanente. Piensa antes de publicar, comparte con responsabilidad y trata a los demás en línea como lo harías en persona.</p>
+              </div>
+              <h3>Normas de ética digital</h3>
+              <ul>
+                <li><strong>Privacidad:</strong> Protege tus datos personales y respeta los ajenos</li>
+                <li><strong>Ciberacoso:</strong> Nunca es aceptable. Reporta cualquier caso</li>
+                <li><strong>Derechos de autor:</strong> Respeta el trabajo de otros, cita tus fuentes</li>
+                <li><strong>Veracidad:</strong> Verifica la información antes de compartirla</li>
+                <li><strong>Empatía:</strong> Detrás de cada pantalla hay una persona real</li>
+              </ul>
+            `,
+            illustration: 'ethics'
+          },
+          filosofia: {
+            title: 'Filosofía Ética',
+            body: `
+              <h3>Grandes pensadores de la ética</h3>
+              <p>La filosofía ética ha sido estudiada por miles de años. Desde Sócrates y Aristóteles hasta Kant y Sartre, los grandes filósofos han tratado de responder a la pregunta: ¿cómo debemos vivir?</p>
+              <div class="info-highlight">
+                <h4>📖 Para reflexionar</h4>
+                <p>Sócrates (470-399 a.C.) enseñó que "una vida sin examen no vale la pena vivirse". Aristóteles decía que "el sabio no dice todo lo que piensa, pero siempre piensa todo lo que dice".</p>
+              </div>
+              <h3>Corrientes filosóficas</h3>
+              <ul>
+                <li><strong>Imperativo categórico (Kant):</strong> Trata a las personas siempre como un fin, nunca solo como un medio.</li>
+                <li><strong>Utilitarismo (Bentham, Mill):</strong> Busca la mayor felicidad para el mayor número de personas.</li>
+                <li><strong>Maquiavelismo:</strong> "El fin justifica los medios". Maquiavelo escribió "El Príncipe" sobre el poder político.</li>
+                <li><strong>Existencialismo (Sartre):</strong> "Estamos condenados a ser libres". Nuestra libertad conlleva responsabilidad total.</li>
+                <li><strong>Estoicismo (Séneca, Marco Aurelio):</strong> Enfócate en lo que puedes controlar, acepta lo que no puedes.</li>
+              </ul>
+            `,
+            illustration: 'ethics'
+          },
+          convivencia: {
+            title: 'Convivencia y Empatía',
+            body: `
+              <h3>Vivir en sociedad</h3>
+              <p>La convivencia es el arte de vivir con otros de manera armoniosa. Requiere empatía, respeto mutuo y la capacidad de ponerse en el lugar del otro. La empatía es la base de todas las relaciones saludables.</p>
+              <div class="info-highlight">
+                <h4>🧠 Ciencia y empatía</h4>
+                <p>La palabra "empatía" viene del griego "empatheia" (en = dentro, pathos = sentimiento). Los neurocientíficos descubrieron las "neuronas espejo", que se activan tanto cuando hacemos algo como cuando vemos a otro hacerlo.</p>
+              </div>
+              <h3>Claves para una buena convivencia</h3>
+              <ul>
+                <li><strong>Escucha activa:</strong> Presta atención genuina cuando alguien habla. No interrumpas.</li>
+                <li><strong>Comunicación asertiva:</strong> Expresa tus ideas con respeto, sin agredir. Usa frases como "Yo siento..."</li>
+                <li><strong>Resolución de conflictos:</strong> Busca soluciones donde todos ganen. El diálogo es la mejor herramienta.</li>
+                <li><strong>Tolerancia:</strong> Acepta que otros piensen diferente. La diversidad nos enriquece.</li>
+                <li><strong>Gratitud:</strong> Agradece a los demás. La gratitud fortalece los vínculos y mejora la salud mental.</li>
+              </ul>
+            `,
+            illustration: 'ethics'
+          }
+        }
+      },
+      espanol: {
+        color: '#ec4899',
+        tag: 'Español',
+        topics: {
+          gramatica: {
+            title: 'Gramática',
+            body: `
+              <h3>La estructura de nuestra lengua</h3>
+              <p>La gramática española estudia las reglas que gobiernan el uso del idioma. Conocerla nos permite comunicarnos con precisión, claridad y belleza.</p>
+              <div class="info-highlight">
+                <h4>📖 ¿Sabías que...?</h4>
+                <p>El español es la segunda lengua más hablada del mundo por número de hablantes nativos, con más de 480 millones de personas. Solo el chino mandarín la supera.</p>
+              </div>
+              <h3>Categorías gramaticales</h3>
+              <ul>
+                <li><strong>Sustantivo:</strong> Nombra personas, animales, cosas o ideas (casa, amor)</li>
+                <li><strong>Verbo:</strong> Expresa acción, proceso o estado (correr, ser, pensar)</li>
+                <li><strong>Adjetivo:</strong> Describe cualidades del sustantivo (grande, azul)</li>
+                <li><strong>Adverbio:</strong> Modifica al verbo, adjetivo u otro adverbio (rápido, muy)</li>
+                <li><strong>Preposición:</strong> Relaciona palabras (a, ante, bajo, con, de, desde)</li>
+              </ul>
+            `,
+            illustration: 'spanish'
+          },
+          ortografia: {
+            title: 'Ortografía',
+            body: `
+              <h3>Escribir sin errores</h3>
+              <p>La ortografía es el conjunto de reglas que determinan la escritura correcta de las palabras. Una buena ortografía demuestra respeto por el idioma y facilita la comunicación.</p>
+              <div class="info-highlight">
+                <h4>✏️ Regla de oro</h4>
+                <p>Las palabras agudas llevan tilde cuando terminan en n, s o vocal. Ejemplo: corazón, jamás, café. Las palabras graves llevan tilde cuando NO terminan en n, s o vocal.</p>
+              </div>
+              <h3>Reglas importantes</h3>
+              <ul>
+                <li><strong>Acentuación:</strong> Agudas, graves, esdrújulas y sobresdrújulas</li>
+                <li><strong>Uso de B y V:</strong> Después de "m" va "b" (tambor, cambiar)</li>
+                <li><strong>Uso de G y J:</strong> Los verbos terminados en -ger, -gir cambian a -jo (proteger/protejo)</li>
+                <li><strong>Puntuación:</strong> La coma, el punto, los signos de interrogación y exclamación</li>
+                <li><strong>Mayúsculas:</strong> Nombres propios, inicio de oración, después de punto</li>
+              </ul>
+            `,
+            illustration: 'spanish'
+          },
+          lectura: {
+            title: 'Lectura y Redacción',
+            body: `
+              <h3>El poder de las palabras</h3>
+              <p>Leer y escribir son habilidades fundamentales que nos permiten aprender, comunicarnos y expresar nuestras ideas. Una buena redacción abre puertas en lo académico y profesional.</p>
+              <div class="info-highlight">
+                <h4>📚 Lectura recomendada</h4>
+                <p>"El principito" de Antoine de Saint-Exupéry es uno de los libros más traducidos del mundo (más de 300 idiomas) y una excelente obra para practicar la comprensión lectora.</p>
+              </div>
+              <h3>Técnicas de redacción</h3>
+              <ul>
+                <li><strong>Introducción:</strong> Presenta el tema y capta la atención</li>
+                <li><strong>Desarrollo:</strong> Expone las ideas principales con claridad</li>
+                <li><strong>Conclusión:</strong> Resume y cierra el texto</li>
+                <li><strong>Cohesión:</strong> Usa conectores (además, sin embargo, por lo tanto)</li>
+                <li><strong>Revisión:</strong> Siempre revisa ortografía y gramática antes de finalizar</li>
+              </ul>
+            `,
+            illustration: 'spanish'
+          },
+          figuras: {
+            title: 'Figuras Literarias',
+            body: `
+              <h3>El adorno del lenguaje</h3>
+              <p>Las figuras literarias son recursos que usamos para embellecer el lenguaje, dar énfasis o crear imágenes vívidas en la mente del lector. Se usan tanto en poesía como en la vida cotidiana.</p>
+              <div class="info-highlight">
+                <h4>🎭 ¿Sabías que...?</h4>
+                <p>La metáfora es una de las figuras retóricas más antiguas, usada desde la época de Aristóteles (384-322 a.C.). Un ejemplo famoso: "Tus ojos son dos luceros" donde se comparan ojos con luceros sin usar "como".</p>
+              </div>
+              <h3>Figuras más comunes</h3>
+              <ul>
+                <li><strong>Metáfora:</strong> Identifica un término real con otro imaginario. "Tus ojos son dos luceros"</li>
+                <li><strong>Símil o comparación:</strong> Usa "como" para comparar. "Blanco como la nieve"</li>
+                <li><strong>Hipérbole:</strong> Exageración. "Te he llamado un millón de veces"</li>
+                <li><strong>Personificación:</strong> Dar cualidades humanas a objetos. "El viento susurraba secretos"</li>
+                <li><strong>Onomatopeya:</strong> Palabras que imitan sonidos. "tic-tac", "guau", "muu"</li>
+                <li><strong>Aliteración:</strong> Repetición de sonidos. "El ruido con que rueda la ronca tempestad"</li>
+              </ul>
+            `,
+            illustration: 'spanish'
+          },
+          sinonimos: {
+            title: 'Vocabulario y Sinónimos',
+            body: `
+              <h3>Riqueza léxica del español</h3>
+              <p>El español es un idioma increíblemente rico en vocabulario. Los sinónimos son palabras que tienen significado similar, y nos permiten expresar una misma idea de muchas formas diferentes.</p>
+              <div class="info-highlight">
+                <h4>📖 Dato curioso</h4>
+                <p>La palabra "feliz" tiene más de 20 sinónimos: contento, dichoso, gozoso, jubiloso, alegre, radiante, eufórico, satisfecho... El español tiene aproximadamente 100,000 palabras en uso común.</p>
+              </div>
+              <h3>Sinónimos útiles</h3>
+              <ul>
+                <li><strong>Feliz →</strong> Alegre, contento, dichoso, radiante, jubiloso</li>
+                <li><strong>Triste →</strong> Apagado, melancólico, afligido, desconsolado</li>
+                <li><strong>Grande →</strong> Enorme, gigante, colosal, vasto, inmenso</li>
+                <li><strong>Bonito →</strong> Hermoso, lindo, bello, precioso, espléndido</li>
+                <li><strong>Importante →</strong> Trascendental, relevante, significativo, crucial</li>
+                <li><strong>Antónimos:</strong> Palabras con significado opuesto. Feliz ↔ Triste, Grande ↔ Pequeño</li>
+              </ul>
+            `,
+            illustration: 'spanish'
+          }
+        }
+      }
+    };
+
+    const illustrations = {
+      math: '<svg viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="40" y="40" width="320" height="240" rx="20" fill="url(#mathGrad)" opacity="0.1"/><text x="80" y="120" font-family="monospace" font-size="40" fill="#6366f1" font-weight="bold">E=mc²</text><text x="60" y="180" font-family="monospace" font-size="48" fill="#8b5cf6" font-weight="bold">∫ f(x)dx</text><text x="100" y="240" font-family="monospace" font-size="36" fill="#6366f1">a²+b²=c²</text><defs><linearGradient id="mathGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#6366f1"/><stop offset="100%" stop-color="#8b5cf6"/></linearGradient></defs></svg>',
+      geometry: '<svg viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="40" y="40" width="320" height="240" rx="20" fill="url(#geoGrad)" opacity="0.1"/><polygon points="200,60 100,220 300,220" fill="#6366f1" opacity="0.2" stroke="#6366f1" stroke-width="3"/><rect x="130" y="130" width="140" height="100" rx="8" fill="#8b5cf6" opacity="0.15" stroke="#8b5cf6" stroke-width="3"/><circle cx="200" cy="170" r="50" fill="none" stroke="#6366f1" stroke-width="3" stroke-dasharray="8 4"/><circle cx="200" cy="170" r="3" fill="#8b5cf6"/><text x="40" y="300" font-family="monospace" font-size="14" fill="#6366f1">Área = π × r²</text><defs><linearGradient id="geoGrad"><stop offset="0%" stop-color="#6366f1"/><stop offset="100%" stop-color="#8b5cf6"/></linearGradient></defs></svg>',
+      biology: '<svg viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="40" y="40" width="320" height="240" rx="20" fill="url(#bioGrad)" opacity="0.1"/><circle cx="200" cy="160" r="70" fill="#10b981" opacity="0.15" stroke="#10b981" stroke-width="2"/><circle cx="200" cy="160" r="30" fill="#10b981" opacity="0.2" stroke="#10b981" stroke-width="2"/><circle cx="200" cy="160" r="10" fill="#059669"/><path d="M130 90 Q150 70 170 90 Q150 110 130 90Z" fill="#10b981" opacity="0.3" stroke="#059669" stroke-width="1.5"/><path d="M270 90 Q290 70 310 90 Q290 110 270 90Z" fill="#10b981" opacity="0.3" stroke="#059669" stroke-width="1.5"/><path d="M200 230 Q210 250 200 260 Q190 250 200 230Z" fill="#10b981" opacity="0.3"/><line x1="130" y1="90" x2="170" y2="90" stroke="#059669" stroke-width="0.5" opacity="0.3"/><line x1="270" y1="90" x2="310" y2="90" stroke="#059669" stroke-width="0.5" opacity="0.3"/><defs><linearGradient id="bioGrad"><stop offset="0%" stop-color="#10b981"/><stop offset="100%" stop-color="#059669"/></linearGradient></defs></svg>',
+      chemistry: '<svg viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="40" y="40" width="320" height="240" rx="20" fill="url(#chemGrad)" opacity="0.1"/><path d="M160 260 L160 140 L240 140 L240 260Z" fill="#10b981" opacity="0.1" stroke="#10b981" stroke-width="2"/><path d="M180 140 L180 100 L220 100 L220 140" fill="none" stroke="#10b981" stroke-width="2"/><circle cx="180" cy="180" r="12" fill="#10b981" opacity="0.3"/><circle cx="220" cy="180" r="12" fill="#059669" opacity="0.3"/><circle cx="200" cy="220" r="16" fill="#10b981" opacity="0.2" stroke="#10b981" stroke-width="1.5"/><defs><linearGradient id="chemGrad"><stop offset="0%" stop-color="#10b981"/><stop offset="100%" stop-color="#059669"/></linearGradient></defs></svg>',
+      physics: '<svg viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="40" y="40" width="320" height="240" rx="20" fill="url(#physGrad)" opacity="0.1"/><circle cx="200" cy="160" r="40" fill="none" stroke="#10b981" stroke-width="2"/><line x1="200" y1="120" x2="200" y2="200" stroke="#10b981" stroke-width="2"/><line x1="160" y1="160" x2="240" y2="160" stroke="#10b981" stroke-width="2"/><path d="M240 160 L260 140" stroke="#059669" stroke-width="2"/><path d="M240 160 L260 180" stroke="#059669" stroke-width="2"/><circle cx="200" cy="160" r="5" fill="#10b981"/><defs><linearGradient id="physGrad"><stop offset="0%" stop-color="#10b981"/><stop offset="100%" stop-color="#059669"/></linearGradient></defs></svg>',
+      english: '<svg viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="40" y="40" width="320" height="240" rx="20" fill="url(#engGrad)" opacity="0.1"/><rect x="80" y="80" width="240" height="160" rx="10" fill="#f59e0b" opacity="0.08" stroke="#f59e0b" stroke-width="2"/><text x="130" y="140" font-family="serif" font-size="32" fill="#f59e0b" font-weight="bold">Hello!</text><text x="110" y="190" font-family="serif" font-size="24" fill="#d97706">How are you?</text><text x="140" y="225" font-family="serif" font-size="18" fill="#f59e0b" opacity="0.6">I am fine, thanks!</text><defs><linearGradient id="engGrad"><stop offset="0%" stop-color="#f59e0b"/><stop offset="100%" stop-color="#d97706"/></linearGradient></defs></svg>',
+      history: '<svg viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="40" y="40" width="320" height="240" rx="20" fill="url(#histGrad)" opacity="0.1"/><rect x="120" y="80" width="160" height="120" rx="8" fill="none" stroke="#ef4444" stroke-width="2"/><rect x="100" y="60" width="200" height="20" rx="4" fill="#ef4444" opacity="0.15"/><rect x="140" y="100" width="120" height="4" fill="#ef4444" opacity="0.4"/><rect x="140" y="115" width="100" height="4" fill="#ef4444" opacity="0.3"/><rect x="140" y="130" width="80" height="4" fill="#ef4444" opacity="0.2"/><circle cx="200" cy="200" r="20" fill="#ef4444" opacity="0.1" stroke="#ef4444" stroke-width="2"/><circle cx="200" cy="200" r="8" fill="#ef4444" opacity="0.2"/><defs><linearGradient id="histGrad"><stop offset="0%" stop-color="#ef4444"/><stop offset="100%" stop-color="#b91c1c"/></linearGradient></defs></svg>',
+      ethics: '<svg viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="40" y="40" width="320" height="240" rx="20" fill="url(#ethGrad)" opacity="0.1"/><circle cx="200" cy="140" r="60" fill="none" stroke="#fbbf24" stroke-width="2"/><path d="M200 100 L200 140 L230 160" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/><path d="M160 220 Q200 200 240 220" stroke="#fbbf24" stroke-width="2" fill="none"/><circle cx="200" cy="140" r="4" fill="#fbbf24"/><text x="175" y="280" font-family="sans-serif" font-size="14" fill="#f59e0b" opacity="0.6">Sabiduría</text><defs><linearGradient id="ethGrad"><stop offset="0%" stop-color="#fbbf24"/><stop offset="100%" stop-color="#f59e0b"/></linearGradient></defs></svg>',
+      spanish: '<svg viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="40" y="40" width="320" height="240" rx="20" fill="url(#espGrad)" opacity="0.1"/><text x="100" y="120" font-family="serif" font-size="28" fill="#ec4899" font-weight="bold">El español</text><text x="80" y="165" font-family="serif" font-size="22" fill="#db2777">es una lengua</text><text x="90" y="205" font-family="serif" font-size="20" fill="#ec4899" opacity="0.7">hermosa y rica</text><line x1="80" y1="225" x2="320" y2="225" stroke="#ec4899" stroke-width="1" opacity="0.3"/><circle cx="120" cy="250" r="3" fill="#ec4899" opacity="0.4"/><circle cx="200" cy="250" r="3" fill="#db2777" opacity="0.4"/><circle cx="280" cy="250" r="3" fill="#ec4899" opacity="0.4"/><defs><linearGradient id="espGrad"><stop offset="0%" stop-color="#ec4899"/><stop offset="100%" stop-color="#db2777"/></linearGradient></defs></svg>'
+    };
+
+    function getParam(name) {
+      const url = new URL(window.location.href);
+      return url.searchParams.get(name);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const subject = getParam('subject') || 'matematicas';
+      const topic = getParam('topic') || 'algebra';
+      const data = subjectsData[subject] || subjectsData.matematicas;
+      const topicData = data.topics[topic] || Object.values(data.topics)[0];
+
+      document.documentElement.style.setProperty('--subject-accent', data.color);
+      document.documentElement.style.setProperty('--card-accent-bg', data.color + '15');
+
+      document.getElementById('info-subject-tag').textContent = data.tag + ' — ' + topicData.title;
+      document.getElementById('info-title').textContent = topicData.title;
+      document.getElementById('info-body').innerHTML = topicData.body + '<div id="topic-quiz-container" style="margin-top:32px;"></div>';
+      document.getElementById('info-illustration').innerHTML = illustrations[topicData.illustration] || illustrations.math;
+
+      if (typeof Animations !== 'undefined' && Animations.refreshScrollReveal) {
+        setTimeout(() => Animations.refreshScrollReveal(), 100);
+      }
+      const quizSubjectMap = { espanol:'Español', etica:'Ética' };
+      const quizSubject = quizSubjectMap[subject] || subject;
+      setTimeout(() => {
+        if (typeof QuizSystem !== 'undefined' && QuizSystem.renderTopicQuiz) {
+          QuizSystem.renderTopicQuiz(quizSubject, topic, 'topic-quiz-container');
+        }
+      }, 200);
+    });
+  </script>
+</body>
+</html>

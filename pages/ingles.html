@@ -54,19 +54,40 @@
           <div class="topic-card">
             <h3>Vocabulary</h3>
             <p>Aprende nuevas palabras en ingles con ejemplos y pronunciacion.</p>
-            <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
+            <button class="btn btn-sm btn-outline" onclick="window.location.href='informacion.html?subject=ingles&topic=vocabulary'">Aprende más</button>
           </div>
           <div class="topic-card">
             <h3>Grammar</h3>
             <p>Domina la gramatica inglesa: tiempos verbales, preposiciones y estructura.</p>
-            <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
+            <button class="btn btn-sm btn-outline" onclick="window.location.href='informacion.html?subject=ingles&topic=grammar'">Aprende más</button>
           </div>
           <div class="topic-card">
             <h3>Conversation</h3>
             <p>Frases utiles para conversaciones cotidianas y situaciones reales.</p>
-            <button class="btn btn-sm btn-outline" onclick="document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})">Practicar</button>
+            <button class="btn btn-sm btn-outline" onclick="window.location.href='informacion.html?subject=ingles&topic=conversation'">Aprende más</button>
+          </div>
+          <div class="topic-card">
+            <h3>Telling Time & Numbers</h3>
+            <p>Aprende a decir la hora, los numeros ordinales y las fechas en ingles.</p>
+            <button class="btn btn-sm btn-outline" onclick="window.location.href='informacion.html?subject=ingles&topic=time'">Aprende más</button>
+          </div>
+          <div class="topic-card">
+            <h3>Past Tense & Irregulars</h3>
+            <p>Verbos irregulares, pasado simple y como hablar de eventos pasados.</p>
+            <button class="btn btn-sm btn-outline" onclick="window.location.href='informacion.html?subject=ingles&topic=irregulars'">Aprende más</button>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="tool-title" style="background:var(--bg-secondary);">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Herramienta</span>
+          <h2 class="section-title" id="tool-title">Flashcards de Vocabulario</h2>
+          <p class="section-subtitle">Toca la tarjeta para ver la traduccion. Navega entre palabras para ampliar tu vocabulario.</p>
+        </div>
+        <div class="reveal" id="english-tool"></div>
       </div>
     </section>
 
@@ -128,10 +149,12 @@
   <script src="../js/animations.js"></script>
   <script src="../js/quiz.js"></script>
   <script src="../js/games.js"></script>
+  <script src="../js/tools.js"></script>
   <script src="../js/main.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       QuizSystem.init('ingles');
+      SubjectTools.vocabCards('english-tool');
     });
   </script>
 </body>

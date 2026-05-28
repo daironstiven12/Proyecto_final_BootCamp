@@ -261,8 +261,22 @@
   }
 }
 
+/* ---- Hide mascot on small mobile ---- */
+@media (max-width: 575px) {
+  .mascot {
+    width: 60px;
+    height: 60px;
+    bottom: 16px;
+    right: 16px;
+  }
+}
+
 /* ---- Very Small Mobile (<375px) ---- */
 @media (max-width: 374px) {
+  .mascot {
+    display: none;
+  }
+
   .memory-grid {
     grid-template-columns: repeat(2, 1fr);
   }
